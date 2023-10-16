@@ -1,0 +1,48 @@
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.classement {
+  background-color: #7186ff;
+  color: white;
+  width: 50%;
+  height: 500px;
+  padding: 10px;
+  margin: auto;
+  margin-top: 70px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.joueurs {
+  margin-top: 50px;
+  font-size: 25px;
+  font-weight: normal;
+}
+
+.boutons {
+  display: flex; /* Utilisation de Flexbox pour afficher les boutons en ligne */
+  justify-content: center; /* Espace uniformément les boutons sur la ligne */
+  margin-top: auto; /* Pousse les boutons vers le bas du rectangle */
+}
+
+button {
+  width: 300px;
+  height: 80px;
+  border: none;
+  border-radius: 30px;
+  background-color: #009dd2;
+  color: #EEEEEE;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-right: 40px;
+  cursor: pointer;
+}

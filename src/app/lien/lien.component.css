@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.texte {
+  text-align: center;
+  font-size: 45px;
+  font-weight: bold;
+  font-family: "Arial", serif;
+  margin-top: 8%;
+  padding-bottom: 80px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none ;
+  font-size: 22px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.lien {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.bouton_lien {
+  display: flex;
+  align-items: center;
+  background-color: #cccccc;
+  color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  margin-bottom: 80px;
+}
+
+.start {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.bouton_start {
+  background-color: #00a3d9;
+  color: #ffffff;
+  border-radius: 30px;
+  text-align: center;
+  width: 300px;
+  height: 80px;
+  margin: auto;
+}

@@ -3,12 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { HeaderComponent } from './header/header.component';
+import { ChoixThemeComponent } from './choix-theme/choix-theme.component';
+import { LienComponent } from './lien/lien.component';
+import { ClassementComponent } from './classement/classement.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    ChoixThemeComponent,
+    LienComponent,
+    ClassementComponent
   ],
   imports: [
     BrowserModule,
