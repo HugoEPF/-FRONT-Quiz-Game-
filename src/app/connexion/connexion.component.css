@@ -1,0 +1,51 @@
+.connexion_body {
+  margin-top: 50px;
+  display: flex;
+  text-align: center;
+  padding: 30px;
+  align-items: flex-start;
+}
+
+.connexion, .inscription {
+  display: inline-block;
+  width: 50%;
+  font-size: 22px;
+  height: 100%;
+  font-weight: bold;
+  font-family: "Arial", serif;
+}
+
+.connexion {
+  margin-left: 15%;
+}
+
+.inscription {
+  border-left: 3px solid #000;
+  margin-right: 15%;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: #FF5733;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  width: 150px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  width: 250px;
+}
