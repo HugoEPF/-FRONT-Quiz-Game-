@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  /*font-family: Roboto, Helvetica, Arial,serif, sans-serif;*/
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(90deg, #ff5757, #a652ff);
+}
