@@ -1,0 +1,19 @@
+.title{
+  text-align: center;
+}
+
+.rectangle {
+  width: 200px;
+  height: 100px;
+  background-color: #3498db;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  cursor: pointer; /* Curseur en forme de main au survol */
+
+}
+
+.body_questions {
+
+  border: 2px solid #3498db;
+}
