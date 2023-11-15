@@ -10,8 +10,8 @@
     </button>
   </div>
 
-  <div class="start">
-    <button class="bouton_start">Démarrer le quiz</button>
+  <div class="start" *ngIf="questions$ | async as questions">
+    <button class="bouton_start"  routerLink="/question/{{slicedString}}/{{questions.at(0)?.id}}">Démarrer le quiz</button>
   </div>
 
 </div>

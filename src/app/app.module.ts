@@ -6,6 +6,7 @@ import { ChoixThemeComponent } from './choix-theme/choix-theme.component';
 import { LienComponent } from './lien/lien.component';
 import { ClassementComponent } from './classement/classement.component';
 import { QuestionsComponent } from './questions/questions.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { QuestionsComponent } from './questions/questions.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

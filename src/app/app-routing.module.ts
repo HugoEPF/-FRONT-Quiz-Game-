@@ -7,13 +7,13 @@ import {ClassementComponent} from "./classement/classement.component";
 import {QuestionsComponent} from "./questions/questions.component";
 
 
-
 const routes: Routes = [
   { path: "", component: ConnexionComponent },
   { path: "choix_theme", component: ChoixThemeComponent},
-  { path: "lien", component: LienComponent},
+  { path: "lien/:genre", component: LienComponent},
   { path: "classement", component: ClassementComponent},
-  { path: "question", component: QuestionsComponent }
+  { path: "question/:genre/:id", component: QuestionsComponent }
+
 ]
 
 @NgModule({
