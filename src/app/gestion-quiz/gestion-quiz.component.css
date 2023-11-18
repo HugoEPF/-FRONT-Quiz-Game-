@@ -1,0 +1,32 @@
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.choix_quiz {
+  width: 80%;
+  margin: 10% auto;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+button {
+  width: 300px;
+  height: 380px;
+  border: none;
+  border-radius: 30px;
+  color: #EEEEEE;
+  padding: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dégradé {
+  background: linear-gradient(130deg, #3498db, #6c00d2);
+
+}

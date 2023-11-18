@@ -1,0 +1,25 @@
+<div class="container">
+  <label for="questionCount">Nombre de questions : </label>
+  <input type="number" id="questionCount" [(ngModel)]="questionCount">
+  <button (click)="generateQuestions()">Générer</button>
+</div>
+
+<div *ngIf="questions.length > 0">
+  <h2>Renseignez vos questions </h2>
+  <div *ngFor="let question of questions" class="question-div">
+    <label for="questions">{{ question }} : </label>
+    <input class="input_questions" type="text" id="questions" required> <br>
+
+    <label for="reponse1">Réponse 1 : </label>
+    <input class="input_questions" type="text" id="reponse1" required> <br>
+
+    <label for="reponse2">Réponse 2 : </label>
+    <input class="input_questions" type="text" id="reponse2" required> <br>
+
+    <label for="reponse3">Réponse 3 : </label>
+    <input class="input_questions" type="text" id="reponse3" required> <br>
+
+    <label for="reponse4">Réponse 4 : </label>
+    <input class="input_questions" type="text" id="reponse4" required>
+  </div>
+</div>
