@@ -24,7 +24,7 @@ import { CreationUserComponent } from './creation-user/creation-user.component';
 
 
 @NgModule({
-  declarations: [
+  declarations:[
     AppComponent,
     ChoixThemeComponent,
     ConnexionComponent,
@@ -53,5 +53,4 @@ import { CreationUserComponent } from './creation-user/creation-user.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
