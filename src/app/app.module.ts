@@ -23,12 +23,18 @@ import {InscriptionComponent} from './inscription/inscription.component';
 
 
 @NgModule({
-  declarations: [
+  declarations:[
     AppComponent,
     ChoixThemeComponent,
     ConnexionComponent,
     LienComponent,
     ClassementComponent,
+    QuestionsComponent,
+    AccueilAdminComponent,
+    ChoixThemeAdminComponent,
+    CreationQuizComponent,
+    GestionQuizComponent,
+    GestionUserComponent
     QuestionsComponent,
     AccueilAdminComponent,
     ChoixThemeAdminComponent,
