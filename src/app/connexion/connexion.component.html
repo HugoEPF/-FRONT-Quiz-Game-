@@ -1,41 +1,49 @@
-<header>
+<div class="accueil">
+
   <h1>Quoicouquiz</h1>
-</header>
+  <div class="connexion_body">
 
-<div class="connexion_body">
+    <div class="connexion">
+      <div class="texteaccueil">
+        <span>
+          Vous avez déjà un compte ? <br>
+          Connectez-vous !
+        </span>
+      </div>
 
-  <div class="connexion">
-    <span>Vous avez déja un compte ? <br>
-    Connectez vous !</span>    <br>    <br>    <br>
+      <div class="form">
+        <form>
+          <div class="mb-3">
+            <label for="Email_connexion" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="Email_connexion" aria-describedby="emailHelp"
+                   placeholder="Entrez votre adresse e-mail" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Se connecter</button>
+        </form>
+      </div>
+    </div>
 
-    <div class="form">
-      <label for="Email_connexion">Email : </label>
-      <input type="text" id="Email_connexion" name="Email"
-             style="margin-left: 8px"
-             placeholder="Entrez votre adresse e-mail" required>
-    </div>    <br>    <br>
+    <div class="inscription">
+      <div class="texteaccueil">
+        <span>
+          Première connexion ? <br>
+          Inscrivez vous !
+        </span>
+      </div>
 
-    <button>Se connecter</button>
-  </div>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 placeholder="Entrez votre adresse e-mail" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Pseudo : </label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Entrez votre pseudo">
+        </div>
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+      </form>
 
-  <div class="inscription">
-    <span>Première connexion ? <br>
-    Inscrivez vous !</span>    <br>    <br>
-
-    <div class="form">
-      <label for="Email_inscription">Email : </label>
-      <input type="text" id="Email_inscription" name="Email"
-             style="margin-left: 8px"
-             placeholder="Entrez votre adresse e-mail" required>
-    </div>    <br>
-
-    <div class="form">
-      <label for="Pseudo_inscription">Pseudo : </label>
-      <input type="text" id="Pseudo_inscription" name="pseudo"
-             style="margin-left: 8px"
-             placeholder="Entrez votre pseudo" required><br>
-    </div>    <br>
-
-    <button>S'inscrire</button>
+    </div>
   </div>
 </div>
