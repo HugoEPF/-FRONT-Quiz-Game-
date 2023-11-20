@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { ChoixThemeComponent } from './choix-theme/choix-theme.component';
-import { LienComponent } from './lien/lien.component';
-import { ClassementComponent } from './classement/classement.component';
-import { QuestionsComponent } from './questions/questions.component';
+import {ChoixThemeComponent} from './choix-theme/choix-theme.component';
+import {LienComponent} from './lien/lien.component';
+import {ClassementComponent} from './classement/classement.component';
+import {QuestionsComponent} from './questions/questions.component';
 import {HttpClientModule} from "@angular/common/http";
 import {AccueilAdminComponent} from './accueil-admin/accueil-admin.component';
 import {ChoixThemeAdminComponent} from './choix-theme-admin/choix-theme-admin.component';
@@ -23,7 +23,7 @@ import {InscriptionComponent} from './inscription/inscription.component';
 
 
 @NgModule({
-  declarations:[
+  declarations: [
     AppComponent,
     ChoixThemeComponent,
     ConnexionComponent,
@@ -34,7 +34,6 @@ import {InscriptionComponent} from './inscription/inscription.component';
     ChoixThemeAdminComponent,
     CreationQuizComponent,
     GestionQuizComponent,
-    GestionUserComponent
     QuestionsComponent,
     AccueilAdminComponent,
     ChoixThemeAdminComponent,
@@ -55,6 +54,8 @@ import {InscriptionComponent} from './inscription/inscription.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
