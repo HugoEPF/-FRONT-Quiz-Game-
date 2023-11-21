@@ -5,16 +5,15 @@
   </div>
 
   <div class="lien">
-    <button class="bouton_lien" (click)="copyToClipboard()">
+    <button  class="bouton_lien" (click)="copyToClipboard()">
       <img src="../../assets/lien_hypertexte.png" alt="lien_quiz" width="25" height="25">
       <span>Copier le lien du quiz</span>
     </button>
   </div>
 
   <div class="start" *ngIf="questions$ | async as questions">
-
-    <button class="bouton_start" (click)="getId()">Démarrer le quiz</button>
-
+    <button class="bouton_start" routerLink="/question/{{slicedString}}/{{questions.at(0)?.id}}">Démarrer le quiz
+    </button>
   </div>
 
 </div>

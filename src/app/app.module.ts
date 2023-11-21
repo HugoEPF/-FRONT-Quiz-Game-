@@ -53,7 +53,7 @@ import {InscriptionComponent} from './inscription/inscription.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     HttpClientModule,
     FormsModule
   ],
