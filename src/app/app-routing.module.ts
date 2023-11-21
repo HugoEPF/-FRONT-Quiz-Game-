@@ -12,6 +12,7 @@ import {ChoixThemeAdminComponent} from "./choix-theme-admin/choix-theme-admin.co
 import {CreationQuizComponent} from "./creation-quiz/creation-quiz.component";
 import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
+import {CreationUserComponent} from "./creation-user/creation-user.component";
 
 
 const routes: Routes = [
@@ -26,9 +27,9 @@ const routes: Routes = [
   {path: "gestion_user", component: GestionUserComponent},
   {path: "choix_theme_admin", component: ChoixThemeAdminComponent},
   {path: "creation_quiz", component: CreationQuizComponent},
+  {path: "creation_user", component: CreationUserComponent},
   {path: "edit_quiz", component: EditQuizComponent},
   {path: "edit_user", component: EditUserComponent},
-
 ]
 
 @NgModule({

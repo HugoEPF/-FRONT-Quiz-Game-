@@ -1,16 +1,25 @@
-.container {
-  text-align: center;
-  margin-top: 20px;
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.input_questions {
-  border-radius: 5px;
-  font-size: 16px;
-  color: #000000;
-  width: 80%;
-  margin-bottom: 10px;
+.contenu {
+  width: 50%;
+  margin: 2% auto;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+.container {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .question-div {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
