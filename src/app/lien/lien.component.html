@@ -11,7 +11,7 @@
   </div>
 
   <div class="start" *ngIf="questions$ | async as questions">
-    <button class="bouton_start"  routerLink="/question/{{slicedString}}/{{questions.at(0)?.id}}">Démarrer le quiz</button>
+    <button class="bouton_start"  (click)="getId()" >Démarrer le quiz</button>
   </div>
 
 </div>
