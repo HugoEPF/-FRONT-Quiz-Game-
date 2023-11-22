@@ -12,32 +12,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Otto</td>
+    <tr *ngFor="let user of user$ | async">
+      <td>{{ user.id }}</td>
+      <td>{{ user.pseudo }}</td>
+      <td>{{ user.email}}</td>
+      <td>{{ user.score }}</td>
       <td>
         <a class="btn btn-success" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
-          <img src="/assets/pencil.svg" alt="Editer" routerLink="/edit_user">
+          <img src="/assets/pencil.svg" alt="Editer" routerLink="/edit_user/{{user.id}}">
         </a>
-        <a class="btn btn-danger" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
-          <img src="/assets/trash3.svg" alt="Supprimer">
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>Otto</td>
-      <td>
-        <a class="btn btn-success" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
-          <img src="/assets/pencil.svg" alt="Editer" routerLink="/edit_user">
-        </a>
-        <a class="btn btn-danger" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
-          <img src="/assets/trash3.svg" alt="Supprimer">
-        </a>
+
+
       </td>
     </tr>
     </tbody>
