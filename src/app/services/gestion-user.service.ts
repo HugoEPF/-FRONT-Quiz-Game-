@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {Users} from "../models/Users";
@@ -14,7 +14,6 @@ export class GestionUserService {
   }
 
   private userUrl = "http://localhost:8080/users"
-
   private currentUser: Users | null = null;
 
   setCurrentUser(user: Users | null): void {
@@ -33,12 +32,12 @@ export class GestionUserService {
   }
 
   // Supprimer un utilisateur par son ID
-  delete(id: bigint | undefined): Observable<{}> {
+  delete(id: bigint | undefined) : Observable<{}> {
     return this.http.delete<Users>(`${this.userUrl}/${id}`)
   }
 
-  findAll(): Observable<Users[]> {
-    return this.http.get<Users[]>(this.userUrl)
+  findAll() : Observable<Users[]> {
+    return this.http.get<Users[]>(this.userUrl )
   }
 
   findByMail(email: String): Observable<Users> {
