@@ -17,12 +17,12 @@ export class QuestionsService {
     return this.http.get<Questions[]>(this.questionUrl )
   }
 
-  listQuestionByGenreId(genre: string | undefined, id: Questions | undefined): Observable<Questions[]> {
-    return this.http.get<Questions[]>(this.questionUrl + `/${(genre)}` + `/${(id)}`)
+  findQuestionsById(id: bigint | undefined): Observable<Questions[]> {
+    return this.http.get<Questions[]>(this.questionUrl + `/byId/${(id)}`)
   }
 
-    findIdByGenre(genre: string | undefined): Observable<Questions[]> {
-        return this.http.get<Questions[]>(this.questionUrl + `/${(genre)}`)
+  findQuestionsByGenre(genre: string | undefined): Observable<Questions[]> {
+        return this.http.get<Questions[]>(this.questionUrl + `/byGenre/${(genre)}`)
     }
 
 

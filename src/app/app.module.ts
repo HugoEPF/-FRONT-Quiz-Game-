@@ -14,11 +14,13 @@ import {GestionQuizComponent} from './gestion-quiz/gestion-quiz.component';
 import {GestionUserComponent} from './gestion-user/gestion-user.component';
 import {FormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
+
 import {NavbarAdminComponent} from './navbar-admin/navbar-admin.component';
 import {EditQuizComponent} from './edit-quiz/edit-quiz.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {NavbarUserComponent} from './navbar-user/navbar-user.component';
 import { CreationUserComponent } from './creation-user/creation-user.component';
+
 
 
 @NgModule({
@@ -39,12 +41,15 @@ import { CreationUserComponent } from './creation-user/creation-user.component';
     EditUserComponent,
     NavbarUserComponent,
     CreationUserComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
