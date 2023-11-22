@@ -1,25 +1,28 @@
-<div class="container">
-  <label for="questionCount">Nombre de questions : </label>
-  <input type="number" id="questionCount" [(ngModel)]="questionCount">
-  <button (click)="generateQuestions()">Générer</button>
-</div>
 
-<div *ngIf="questions.length > 0">
-  <h2>Renseignez vos questions </h2>
-  <div *ngFor="let question of questions" class="question-div">
-    <label for="questions">{{ question }} : </label>
-    <input class="input_questions" type="text" id="questions" required> <br>
+<app-navbar-admin></app-navbar-admin>
+<div class="contenu">
+  <div class="container">
+    <label for="questionCount" style="margin-right: 5px">Nombre de questions : </label>
+    <input type="number" id="questionCount" [(ngModel)]="questionCount" style="margin-right: 5px">
+    <button (click)="generateQuestions()">Générer</button>
+  </div>
 
-    <label for="reponse1">Réponse 1 : </label>
-    <input class="input_questions" type="text" id="reponse1" required> <br>
-
-    <label for="reponse2">Réponse 2 : </label>
-    <input class="input_questions" type="text" id="reponse2" required> <br>
-
-    <label for="reponse3">Réponse 3 : </label>
-    <input class="input_questions" type="text" id="reponse3" required> <br>
-
-    <label for="reponse4">Réponse 4 : </label>
-    <input class="input_questions" type="text" id="reponse4" required>
+  <div *ngIf="questions.length > 0">
+    <h2>Renseignez vos questions </h2>
+    <div *ngFor="let question of questions" class="questions-div">
+      <div class="question-div">
+        <label for="question_1" class="form-label" style="font-weight: bold">{{ question }} : </label>
+        <textarea class="form-control" id="question_1" rows="2"></textarea>
+        <label for="reponse1" class="form-label">Réponse 1 : </label>
+        <textarea class="form-control" id="reponse1" rows="1"></textarea>
+        <label for="reponse2" class="form-label">Réponse 2 : </label>
+        <textarea class="form-control" id="reponse2" rows="1"></textarea>
+        <label for="reponse3" class="form-label">Réponse 3 : </label>
+        <textarea class="form-control" id="reponse3" rows="1"></textarea>
+        <label for="reponse4" class="form-label">Réponse 4 : </label>
+        <textarea class="form-control" id="reponse4" rows="1"></textarea>
+      </div>
+    </div>
   </div>
 </div>
+
