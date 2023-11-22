@@ -44,4 +44,12 @@
   margin-left: 650px;
 }
 
+.correct-answer {
+
+  background-color: green;
+}
+
+.wrong-answer {
+  background-color: red;
+}
 
