@@ -1,4 +1,4 @@
-<app-navbar-admin></app-navbar-admin>
+<app-navbar-user></app-navbar-user>
 <div>
   <div class="texte">
     <span>Copiez le lien pour envoyer à <br> vos amis</span>
@@ -13,7 +13,7 @@
 
   <div class="start" *ngIf="questions$ | async as questions">
 
-    <button class="bouton_start"  (click)="getId()" >Démarrer le quiz</button>
+    <button class="bouton_start" (click)="getId()">Démarrer le quiz</button>
 
   </div>
 

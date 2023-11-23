@@ -13,10 +13,11 @@ import {CreationQuizComponent} from "./creation-quiz/creation-quiz.component";
 import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {CreationUserComponent} from "./creation-user/creation-user.component";
-
+import {InscriptionComponent} from "./inscription/inscription.component";
 
 const routes: Routes = [
   {path: "", component: ConnexionComponent},
+  {path: "inscription", component: InscriptionComponent},
   {path: "choix_theme", component: ChoixThemeComponent},
   {path: "lien/:genre", component: LienComponent},
   {path: "classement", component: ClassementComponent},
