@@ -14,7 +14,7 @@ export class EditUserService {
   private userUrl = "http://localhost:8080/users"
 
   delete(id: bigint | undefined): Observable<{}> {
-    return this.http.delete(`${this.userUrl}/${id}`, {responseType: 'text'});
+    return this.http.delete(`${this.userUrl}/${id}`, { responseType: 'text' });
   }
 
   findById(id: bigint): Observable<Users> {
@@ -22,6 +22,9 @@ export class EditUserService {
   }
 
   update(user: Users): Observable<Users> {
+    return this.http.post<Users>(`${this.userUrl}`, user);
+  }
+  create(user: Users): Observable<Users> {
     return this.http.post<Users>(`${this.userUrl}`, user);
   }
 
