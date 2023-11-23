@@ -29,7 +29,6 @@ const routes: Routes = [
   {path: "gestion_user", component: GestionUserComponent},
   {path: "choix_theme_admin", component: ChoixThemeAdminComponent},
   {path: "creation_quiz", component: CreationQuizComponent},
-
   {path: "creation_user", component: CreationUserComponent},
   {path: "edit_quiz", component: EditQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
