@@ -30,7 +30,6 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit(): void {
     const userId: bigint = this._route.snapshot.params['id'];
-
     this.userService.findById(userId).subscribe((user: Users) => {
       this.userForm.patchValue({
         pseudo: user.pseudo,
@@ -46,8 +45,8 @@ export class EditUserComponent implements OnInit {
   }
   save(user: Users) {
     this.userService.update(user).subscribe(() => {
-        this.router.navigate(["gestion_user"])
-      })
-    }
+      this.router.navigate(["gestion_user"])
+    })
+  }
 
 }
