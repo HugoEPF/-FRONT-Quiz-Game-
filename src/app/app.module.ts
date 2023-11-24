@@ -12,7 +12,7 @@ import {ChoixThemeAdminComponent} from './choix-theme-admin/choix-theme-admin.co
 import {CreationQuizComponent} from './creation-quiz/creation-quiz.component';
 import {GestionQuizComponent} from './gestion-quiz/gestion-quiz.component';
 import {GestionUserComponent} from './gestion-user/gestion-user.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
 
 import {NavbarAdminComponent} from './navbar-admin/navbar-admin.component';
@@ -47,9 +47,8 @@ import { CreationUserComponent } from './creation-user/creation-user.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
-    FormsModule
-
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
