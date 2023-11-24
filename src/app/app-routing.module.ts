@@ -13,6 +13,9 @@ import {CreationQuizComponent} from "./creation-quiz/creation-quiz.component";
 import {DetailQuestionComponent} from "./detail-question/detail-question.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {CreationUserComponent} from "./creation-user/creation-user.component";
+import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
+
+
 import {InscriptionComponent} from "./inscription/inscription.component";
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import {ConnexionAdminComponent} from "./connexion-admin/connexion-admin.component";
@@ -49,6 +52,8 @@ const routes: Routes = [
   {path: "", component: PageAccueilComponent},
   {path: "detail_quiz/:genre/:id", component: DetailQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
+  {path: "detail_quiz/:genre", component: DetailQuizComponent},
+
   {path: "", component: PageAccueilComponent},
 ]
 

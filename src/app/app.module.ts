@@ -28,6 +28,7 @@ import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.compo
 
 import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { EditReponseComponent } from './edit-reponse/edit-reponse.component';
+import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { EditReponseComponent } from './edit-reponse/edit-reponse.component';
     EditUserComponent,
     NavbarUserComponent,
     CreationUserComponent,
+    DetailQuizComponent,
     CreationQuestionComponent,
     CreationReponseComponent,
     InscriptionComponent,
