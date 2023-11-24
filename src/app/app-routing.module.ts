@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: "creation_quiz", component: CreationQuizComponent},
   {path: "creation_user", component: CreationUserComponent},
   {path: "edit_quiz", component: EditQuizComponent},
-  {path: "edit_user", component: EditUserComponent},
+  {path: "edit_user/:id", component: EditUserComponent},
 ]
 
 @NgModule({

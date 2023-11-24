@@ -9,29 +9,30 @@
         </span>
     </div>
 
-    <form class="row g-3 needs-validation" novalidate (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <!--    <form class="row g-3 needs-validation" novalidate (ngSubmit)="onSubmit(form)" #form="ngForm">-->
+    <form class="row g-3 needs-validation" novalidate [formGroup]="userForm" (ngSubmit)="create()">
       <div class="mb-3">
         <label for="InputEmail1" class="form-label">Adresse e-mail</label>
-        <input type="email" class="form-control" id="InputEmail1" placeholder="Entrez votre adresse e-mail" required
-               [(ngModel)]="model.email" name="email" #email="ngModel">
+        <input type="email" class="form-control" id="InputEmail1" placeholder="Entrez votre adresse e-mail"
+               formControlName="email" required>
         <div class="mb-3 text-danger"
-             *ngIf="(email.invalid && (email.dirty || email.touched)) || (submitted && form.invalid)">
+             *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched) || (submitted && userForm.invalid)">
           Veuillez fournir une adresse e-mail valide.
         </div>
       </div>
 
       <div class="mb-3">
         <label for="InputPassword1" class="form-label">Pseudo :</label>
-        <input type="text" class="form-control" id="InputPassword1" placeholder="Entrez votre pseudo" required
-               [(ngModel)]="model.pseudo" name="pseudo" #pseudo="ngModel">
+        <input type="text" class="form-control" id="InputPassword1" placeholder="Entrez votre pseudo"
+               formControlName="pseudo" required>
         <div class="mb-3 text-danger"
-             *ngIf="(pseudo.invalid && (pseudo.dirty || pseudo.touched)) || (submitted && form.invalid)">
+             *ngIf="userForm.get('pseudo')?.invalid && (userForm.get('pseudo')?.dirty || userForm.get('pseudo')?.touched) || (submitted && userForm.invalid)">
           Veuillez fournir un pseudo.
         </div>
       </div>
 
       <div class="text-center">
-        <button class="btn btn-primary" type="button" (click)="submitForm(form)"
+        <button class="btn btn-primary" type="button" (click)="submitForm()"
                 style="background: linear-gradient(90deg, #1f80ff, #7648ff); margin-bottom: 10px">
           S'inscrire
         </button>
