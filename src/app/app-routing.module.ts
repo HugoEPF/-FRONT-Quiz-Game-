@@ -16,6 +16,7 @@ import {CreationUserComponent} from "./creation-user/creation-user.component";
 import {InscriptionComponent} from "./inscription/inscription.component";
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import {ConnexionAdminComponent} from "./connexion-admin/connexion-admin.component";
+import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
 
 const routes: Routes = [
   {path: "connexion", component: ConnexionComponent},
@@ -32,9 +33,11 @@ const routes: Routes = [
   {path: "choix_theme_admin", component: ChoixThemeAdminComponent},
   {path: "creation_quiz", component: CreationQuizComponent},
   {path: "creation_user", component: CreationUserComponent},
-  {path: "edit_quiz", component: EditQuizComponent},
+  {path: "edit_question/:id", component: EditQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
   {path: "", component: PageAccueilComponent},
+  {path: "detail_quiz/:genre", component: DetailQuizComponent},
+
 ]
 
 @NgModule({

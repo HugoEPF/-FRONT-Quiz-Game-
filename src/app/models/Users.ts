@@ -1,6 +1,6 @@
 export interface Users {
-  id?: bigint
+  id?: number
   pseudo?: string
   email?: string
-  score?: bigint
+  score?: number
 }
