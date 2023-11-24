@@ -18,8 +18,8 @@ import {NavbarAdminComponent} from './navbar-admin/navbar-admin.component';
 import {EditQuizComponent} from './edit-quiz/edit-quiz.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {NavbarUserComponent} from './navbar-user/navbar-user.component';
-import { CreationUserComponent } from './creation-user/creation-user.component';
-import { InscriptionComponent } from './inscription/inscription.component';
+import {CreationUserComponent} from './creation-user/creation-user.component';
+import {InscriptionComponent} from './inscription/inscription.component';
 
 
 @NgModule({
@@ -40,6 +40,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
     EditUserComponent,
     NavbarUserComponent,
     CreationUserComponent,
+    InscriptionComponent,
 
   ],
   imports: [
