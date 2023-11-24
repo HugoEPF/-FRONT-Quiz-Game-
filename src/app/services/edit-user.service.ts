@@ -27,8 +27,4 @@ export class EditUserService {
   create(user: Users): Observable<Users> {
     return this.http.post<Users>(`${this.userUrl}`, user);
   }
-
-  create(user: Users): Observable<Users> {
-    return this.http.post<Users>(`${this.userUrl}`, user);
-  }
 }
