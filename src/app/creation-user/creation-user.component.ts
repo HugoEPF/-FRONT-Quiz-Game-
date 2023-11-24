@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {Users} from "../models/Users";
 import {ActivatedRoute, Router} from "@angular/router";
+import {EditUserService} from "../services/edit-user.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-creation-user',
@@ -16,7 +16,7 @@ export class CreationUserComponent {
 
   constructor(
     private _route: ActivatedRoute,
-    private userService: UserService,
+    private userService: EditUserService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -26,6 +26,7 @@ export class CreationUserComponent {
       score: 0,
     });
   }
+
 
   create() {
     const userData = this.userForm.value as Users;

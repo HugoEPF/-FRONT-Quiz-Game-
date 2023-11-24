@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Users} from "../models/Users";
+import {EditUserService} from "../services/edit-user.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Observable} from "rxjs";
-import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-edit-user',
@@ -17,7 +17,7 @@ export class EditUserComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private userService: UserService,
+    private userService: EditUserService,
     private router: Router,
     private fb: FormBuilder // Injectez le FormBuilder
   ) {
@@ -41,9 +41,7 @@ export class EditUserComponent implements OnInit {
 
   deleteUser(): void {
     const userId: bigint = this._route.snapshot.params['id'];
-    this.userService.delete(userId).subscribe(() => this.router.navigate(["gestion_user"]).then(() => {
-      window.location.reload();
-    }));
+    this.userService.delete(userId).subscribe(() => this.router.navigate(["gestion_user"]));
   }
   save(user: Users) {
     this.userService.update(user).subscribe(() => {

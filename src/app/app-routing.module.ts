@@ -47,6 +47,7 @@ const routes: Routes = [
   {path: "edit_user/:id", component: EditUserComponent},
   {path: "", component: PageAccueilComponent},
   {path: "detail_quiz/:genre/:id", component: DetailQuizComponent},
+  {path: "edit_user/:id", component: EditUserComponent},
 
 ]
 
