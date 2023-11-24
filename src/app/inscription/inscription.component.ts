@@ -7,7 +7,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css'],
+  styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent {
   userForm: FormGroup;
