@@ -57,6 +57,7 @@ import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
     DetailQuizComponent,
     CreationQuestionComponent,
     CreationReponseComponent,
+    EditQuizComponent,
 
     DetailQuizComponent,
     CreationQuestionComponent,

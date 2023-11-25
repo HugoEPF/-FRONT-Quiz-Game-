@@ -16,6 +16,7 @@ import {CreationUserComponent} from "./creation-user/creation-user.component";
 import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
 import {CreationQuestionComponent} from "./creation-question/creation-question.component";
 import {CreationReponseComponent} from "./creation-reponse/creation-reponse.component";
+import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
 
 
 import {InscriptionComponent} from "./inscription/inscription.component";
