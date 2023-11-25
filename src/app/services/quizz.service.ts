@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs"
+import {Observable, of} from "rxjs"
 import { HttpClient } from "@angular/common/http"
 import {Quizz} from "../models/Quizz";
 
@@ -15,5 +15,6 @@ export class QuizzService {
   findAll(): Observable<Quizz[]> {
     return this.http.get<Quizz[]>(this.quizzUrl)
   }
+
 
 }

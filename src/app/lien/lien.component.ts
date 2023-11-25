@@ -1,6 +1,6 @@
 import {Component, Renderer2} from '@angular/core';
 import { Location } from '@angular/common';
-import {filter, find, forkJoin, map, Observable} from "rxjs";
+import {forkJoin, map, Observable} from "rxjs";
 import {QuestionsService} from "../services/questions.service";
 import {Questions} from "../models/Questions";
 import { Router } from '@angular/router';
@@ -12,11 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./lien.component.css']
 })
 export class LienComponent {
-  imageSource = 'assets/lien_hypertexte.png';
   currentUrl: string | undefined;
   questions$:Observable<Questions[]> =this.questionService.findQuestionsByGenre(this.genreQuestion())
   id:bigint | undefined
-  lengthTableGenre:number| undefined
   constructor(private renderer: Renderer2, private location:Location, private questionService:QuestionsService, private router:Router ) {
 
   }
@@ -52,8 +50,8 @@ export class LienComponent {
     }).subscribe(result => {
       // Les deux appels asynchrones sont terminés
       const questions = result.lengthQuestions;
-      this.lengthTableGenre = Math.floor(Math.random() * questions.length);
-      this.id = questions.at(this.lengthTableGenre)?.id;
+      //this.lengthTableGenre = Math.floor(Math.random() * questions.length);
+      this.id = questions.at(0)?.id;
       this.router.navigateByUrl('/question/' + this.genreQuestion() + '/' + this.id);
     });
   }
