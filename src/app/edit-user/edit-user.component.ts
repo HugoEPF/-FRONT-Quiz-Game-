@@ -41,7 +41,9 @@ export class EditUserComponent implements OnInit {
 
   deleteUser(): void {
     const userId: bigint = this._route.snapshot.params['id'];
-    this.userService.delete(userId).subscribe(() => this.router.navigate(["gestion_user"]));
+    this.userService.delete(userId).subscribe(() => this.router.navigate(["gestion_user"]).then(() => {
+      window.location.reload();
+    }));
   }
   save(user: Users) {
     this.userService.update(user).subscribe(() => {

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Questions} from "../models/Questions";
-import {Quizz} from "../models/Quizz";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,7 @@ export class QuestionsService {
   findAll() : Observable<Questions[]> {
     return this.http.get<Questions[]>(this.questionUrl )
   }
+
   findQuestionsById(id: bigint | undefined): Observable<Questions[]> {
     return this.http.get<Questions[]>(this.questionUrl + `/byId/${(id)}`)
   }

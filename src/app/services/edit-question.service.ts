@@ -14,7 +14,7 @@ export class EditQuestionService {
 
   private reponsesUrl = "http://localhost:8080/reponses"
 
-  findByGenre(question_id: bigint) : Observable<Reponse[]> {
+  findByQuestionId(question_id: bigint) : Observable<Reponse[]> {
     return this.http.get<Reponse[]>(`${this.reponsesUrl}/${question_id}`)
   }
 }
