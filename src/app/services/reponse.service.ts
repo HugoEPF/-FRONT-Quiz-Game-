@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Reponse} from "../models/Reponse";
+import {Questions} from "../models/Questions";
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class ReponseService {
 
   findGoodAnswer(isgood:boolean):Observable<Reponse[]> {
     return this.http.get<Reponse[]>(this.reponseUrl + `/isGood/${(isgood)}`)
+  }
+
+  create(reponse: Reponse): Observable<Reponse> {
+    return this.http.post<Reponse>(`${this.reponseUrl}`, reponse);
   }
 }

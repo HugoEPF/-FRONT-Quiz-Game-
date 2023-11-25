@@ -15,7 +15,6 @@ export class GestionQuizComponent {
 
   constructor(private quizzService: GestionQuizService) {
 
-
   }
 
 }

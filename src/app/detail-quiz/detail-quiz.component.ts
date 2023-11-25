@@ -4,7 +4,7 @@ import {Quizz} from "../models/Quizz";
 import {GestionQuizService} from "../services/gestion-quiz.service";
 import {DetailQuizService} from "../services/detail-quiz.service";
 import {Questions} from "../models/Questions";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-detail-quiz',
@@ -15,10 +15,11 @@ export class DetailQuizComponent {
 
   quizGenre: string = this._route.snapshot.params['genre'];
   quizz$: Observable<Questions[]> = this.quizzService.findByGenre(this.quizGenre)
-
-  constructor(private quizzService: DetailQuizService,  private _route: ActivatedRoute,) {
+  constructor(private quizzService: DetailQuizService,  private _route: ActivatedRoute, private router: Router) {
 
 
   }
+
+
 
 }

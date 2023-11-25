@@ -1,0 +1,28 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="contenu">
+  <form [formGroup]="questionForm">
+    <div class="mb-3 row">
+      <div class="col-sm-10">
+        <span class="form-control-static">{{ questionForm.get('genre')?.value }}</span>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="question_contenu" class="col-sm-2 col-form-label">Intitulé</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="question_contenu" formControlName="contenu">
+      </div>
+    </div>
+
+
+    <div class="mb-3 row" style="margin-bottom: 20px;">
+      <label class="col-sm-1 col-form-label"></label>
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary" (click)="create()" >Créer</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+
+

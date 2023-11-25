@@ -1,4 +1,8 @@
 import {Component} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {EditQuizService} from "../services/edit-quiz.service";
+import {Quizz} from "../models/Quizz";
 
 @Component({
   selector: 'app-creation-quiz',
@@ -7,18 +11,23 @@ import {Component} from '@angular/core';
 })
 export class CreationQuizComponent {
 
-  questionCount: number = 1;
-  questions: string[] = [];
+  quizForm: FormGroup;
 
-  onQuestionCountChange() {
-    console.log(`Vous avez sélectionné ${this.questionCount} questions.`);
-    // Vous pouvez effectuer d'autres actions ici.
-  }
-
-  generateQuestions() {
-    this.questions = [];
-    for (let i = 0; i < this.questionCount; i++) {
-      this.questions.push(`Question ${i + 1}`);
-    }
+  constructor(
+    private _route: ActivatedRoute,
+    private quizService: EditQuizService,
+    private router: Router,
+    private fb: FormBuilder
+  ){
+  this.quizForm = this.fb.group({
+    genre: '',
+    nombre_questions: 0
+  });
+}
+  create() {
+    const quizData = this.quizForm.value as Quizz;
+    this.quizService.create(quizData).subscribe(() => {
+      this.router.navigate(["gestion_quiz"])
+    })
   }
 }

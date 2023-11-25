@@ -17,7 +17,7 @@
       <td>{{ quizz.contenu}}</td>
       <td>
         <a class="btn btn-success" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
-          <img src="/assets/pencil.svg" alt="Editer" routerLink="/edit_quiz/{{quizz.id}}">
+          <img src="/assets/pencil.svg" alt="Editer" routerLink="/edit_question/{{quizz.id}}">
         </a>
 
 
@@ -28,8 +28,8 @@
   </table>
 
   <div class="d-flex align-items-center justify-content-center">
-    <button type="button" class="btn btn-primary" routerLink="/creation_quiz">Créer un nouveau quiz</button>
+    <button type="button" class="btn btn-primary" routerLink="/creation_question/{{quizGenre}}">Créer une question</button>
   </div>
 
-
 </div>
+

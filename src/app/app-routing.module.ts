@@ -17,6 +17,8 @@ import {InscriptionComponent} from "./inscription/inscription.component";
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import {ConnexionAdminComponent} from "./connexion-admin/connexion-admin.component";
 import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
+import {CreationQuestionComponent} from "./creation-question/creation-question.component";
+import {CreationReponseComponent} from "./creation-reponse/creation-reponse.component";
 
 const routes: Routes = [
   {path: "connexion", component: ConnexionComponent},
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path: "choix_theme_admin", component: ChoixThemeAdminComponent},
   {path: "creation_quiz", component: CreationQuizComponent},
   {path: "creation_user", component: CreationUserComponent},
+  {path: "creation_question/:genre", component: CreationQuestionComponent},
+  {path: "creation_reponse/:id", component: CreationReponseComponent},
   {path: "edit_question/:id", component: EditQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
   {path: "", component: PageAccueilComponent},

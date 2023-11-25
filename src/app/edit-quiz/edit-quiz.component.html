@@ -1,33 +1,35 @@
 <app-navbar-admin></app-navbar-admin>
-<div class="contenu">
-  <div class="mb-5 row">
-    <label for="quiz_name" class="col-sm-2 col-form-label">Nom du quiz</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="quiz_name">
-    </div>
-  </div>
+<div class="choix_quiz d-flex flex-column">
+
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Intitulé de la réponse</th>
+      <th scope="col">True/False</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reponse of reponse$ | async">
+      <td>{{ reponse.id }}</td>
+      <td>{{ reponse.contenu }}</td>
+      <td>{{ reponse.isgood}}</td>
+      <td>
+        <a class="btn btn-success" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
+          <img src="/assets/pencil.svg" alt="Editer" routerLink="/edit_question/{{reponse.id}}">
+        </a>
 
 
-  <div class="mb-3">
-    <label for="question_1" class="form-label">Question 1</label>
-    <textarea class="form-control" id="question_1" rows="2"></textarea>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <div class="d-flex align-items-center justify-content-center">
+    <button type="button" class="btn btn-primary" routerLink="/creation_reponse/{{questionId}}">Créer une réponse</button>
   </div>
 
-  <div class="mb-1 row">
-    <label for="reponse_1" class="col-sm-2 col-form-label">Réponse 1 :</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="reponse_1">
-    </div>
-  </div>
-
-  <div class="mb-3 row">
-    <label for="reponse_2" class="col-sm-2 col-form-label">Réponse 2 :</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="reponse_2">
-    </div>
-  </div>
 
 </div>
-
-
-

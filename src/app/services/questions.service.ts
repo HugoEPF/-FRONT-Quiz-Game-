@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Questions} from "../models/Questions";
+import {Quizz} from "../models/Quizz";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,11 @@ export class QuestionsService {
 
   findQuestionsByGenre(genre: string | undefined): Observable<Questions[]> {
         return this.http.get<Questions[]>(this.questionUrl + `/byGenre/${(genre)}`)
-    }
+  }
+
+  create(question: Questions): Observable<Questions> {
+    return this.http.post<Questions>(`${this.questionUrl}`, question);
+  }
 
 
 }
