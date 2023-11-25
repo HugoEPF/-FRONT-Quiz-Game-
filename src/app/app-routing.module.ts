@@ -48,7 +48,6 @@ const routes: Routes = [
   {path: "", component: PageAccueilComponent},
   {path: "detail_quiz/:genre/:id", component: DetailQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
-
 ]
 
 @NgModule({
