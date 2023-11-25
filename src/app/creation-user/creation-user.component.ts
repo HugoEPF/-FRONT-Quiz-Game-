@@ -27,7 +27,6 @@ export class CreationUserComponent {
     });
   }
 
-
   create() {
     const userData = this.userForm.value as Users;
     this.userService.create(userData).subscribe(() => {

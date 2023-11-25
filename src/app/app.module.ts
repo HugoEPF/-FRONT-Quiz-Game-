@@ -18,14 +18,15 @@ import {NavbarAdminComponent} from './navbar-admin/navbar-admin.component';
 import {DetailQuestionComponent} from './detail-question/detail-question.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {NavbarUserComponent} from './navbar-user/navbar-user.component';
-import { CreationQuestionComponent } from './creation-question/creation-question.component';
-import { CreationReponseComponent } from './creation-reponse/creation-reponse.component';
 
 import {CreationUserComponent} from './creation-user/creation-user.component';
-import {InscriptionComponent} from './inscription/inscription.component';
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.component';
 
+import { CreationQuestionComponent } from './creation-question/creation-question.component';
+import { CreationReponseComponent } from './creation-reponse/creation-reponse.component';
+import { EditQuizComponent } from './edit-quiz/edit-quiz.component';
+import {InscriptionComponent} from './inscription/inscription.component';
 import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { EditReponseComponent } from './edit-reponse/edit-reponse.component';
 import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
@@ -58,6 +59,7 @@ import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
     CreationQuestionComponent,
     CreationReponseComponent,
     EditQuizComponent,
+    InscriptionComponent,
 
     DetailQuizComponent,
     CreationQuestionComponent,
@@ -82,5 +84,4 @@ import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
