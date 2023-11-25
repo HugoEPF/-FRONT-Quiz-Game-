@@ -10,7 +10,7 @@ import {GestionQuizComponent} from "./gestion-quiz/gestion-quiz.component";
 import {GestionUserComponent} from "./gestion-user/gestion-user.component";
 import {ChoixThemeAdminComponent} from "./choix-theme-admin/choix-theme-admin.component";
 import {CreationQuizComponent} from "./creation-quiz/creation-quiz.component";
-import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
+import {DetailQuestionComponent} from "./detail-question/detail-question.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {CreationUserComponent} from "./creation-user/creation-user.component";
 import {InscriptionComponent} from "./inscription/inscription.component";
@@ -19,6 +19,7 @@ import {ConnexionAdminComponent} from "./connexion-admin/connexion-admin.compone
 import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
 import {CreationQuestionComponent} from "./creation-question/creation-question.component";
 import {CreationReponseComponent} from "./creation-reponse/creation-reponse.component";
+import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
 
 const routes: Routes = [
   {path: "connexion", component: ConnexionComponent},
@@ -35,12 +36,12 @@ const routes: Routes = [
   {path: "choix_theme_admin", component: ChoixThemeAdminComponent},
   {path: "creation_quiz", component: CreationQuizComponent},
   {path: "creation_user", component: CreationUserComponent},
-  {path: "creation_question/:genre", component: CreationQuestionComponent},
+  {path: "creation_question/:genre/:id", component: CreationQuestionComponent},
   {path: "creation_reponse/:id", component: CreationReponseComponent},
-  {path: "edit_question/:id", component: EditQuizComponent},
+  {path: "edit_question/:id", component: DetailQuestionComponent},
   {path: "edit_user/:id", component: EditUserComponent},
   {path: "", component: PageAccueilComponent},
-  {path: "detail_quiz/:genre", component: DetailQuizComponent},
+  {path: "detail_quiz/:genre/:id", component: DetailQuizComponent},
 
 ]
 

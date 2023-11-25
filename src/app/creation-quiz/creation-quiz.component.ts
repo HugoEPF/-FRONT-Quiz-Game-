@@ -27,7 +27,8 @@ export class CreationQuizComponent {
   create() {
     const quizData = this.quizForm.value as Quizz;
     this.quizService.create(quizData).subscribe(() => {
-      this.router.navigate(["gestion_quiz"])
-    })
+      this.router.navigate(["gestion_quiz"]).then(() => {
+        window.location.reload();
+    })})
   }
 }

@@ -1,5 +1,5 @@
 export interface Quizz {
-  id?: bigint
+  id?: number
   nombre_questions?: number
   genre?: string
 }

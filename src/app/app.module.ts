@@ -15,11 +15,12 @@ import {GestionUserComponent} from './gestion-user/gestion-user.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
 import {NavbarAdminComponent} from './navbar-admin/navbar-admin.component';
-import {EditQuizComponent} from './edit-quiz/edit-quiz.component';
+import {DetailQuestionComponent} from './detail-question/detail-question.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {NavbarUserComponent} from './navbar-user/navbar-user.component';
 import { CreationQuestionComponent } from './creation-question/creation-question.component';
 import { CreationReponseComponent } from './creation-reponse/creation-reponse.component';
+import { EditQuizComponent } from './edit-quiz/edit-quiz.component';
 
 import {CreationUserComponent} from './creation-user/creation-user.component';
 import {InscriptionComponent} from './inscription/inscription.component';
@@ -46,12 +47,13 @@ import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.compo
     GestionQuizComponent,
     GestionUserComponent,
     NavbarAdminComponent,
-    EditQuizComponent,
+    DetailQuestionComponent,
     EditUserComponent,
     NavbarUserComponent,
     CreationUserComponent,
     CreationQuestionComponent,
     CreationReponseComponent,
+    EditQuizComponent,
 
     InscriptionComponent,
     PageAccueilComponent,

@@ -16,7 +16,8 @@ export class CreationQuestionComponent {
   constructor(private route: ActivatedRoute, private fb: FormBuilder,private questionService: QuestionsService, private router: Router) {
       this.questionForm = this.fb.group({
         genre: this.route.snapshot.paramMap.get('genre'),
-        contenu: ''
+        contenu: '',
+        quizz: ''
       });
   }
 
@@ -25,9 +26,9 @@ export class CreationQuestionComponent {
 
 
     const questionData = this.questionForm.value as Questions;
-
+    questionData.quizz= { id: this.route.snapshot.params['id'] };
     this.questionService.create(questionData).subscribe(() => {
-      this.router.navigate([`detail_quiz/${questionData.genre}`]);
+      this.router.navigate([`detail_quiz/${questionData.genre}/${questionData.quizz?.id}`]);
     });
   }
 }

@@ -14,6 +14,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class DetailQuizComponent {
 
   quizGenre: string = this._route.snapshot.params['genre'];
+  quizId: string = this._route.snapshot.params['id'];
   quizz$: Observable<Questions[]> = this.quizzService.findByGenre(this.quizGenre)
   constructor(private quizzService: DetailQuizService,  private _route: ActivatedRoute, private router: Router) {
 
