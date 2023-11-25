@@ -54,6 +54,7 @@ import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.compo
     CreationQuestionComponent,
     CreationReponseComponent,
     EditQuizComponent,
+    InscriptionComponent,
 
     InscriptionComponent,
     PageAccueilComponent,
@@ -71,5 +72,4 @@ import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.compo
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

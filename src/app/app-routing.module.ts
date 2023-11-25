@@ -22,6 +22,8 @@ import {CreationReponseComponent} from "./creation-reponse/creation-reponse.comp
 import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
 
 const routes: Routes = [
+  {path: "", component: ConnexionComponent},
+  {path: "inscription", component: InscriptionComponent},
   {path: "connexion", component: ConnexionComponent},
   {path: "connexion_admin", component: ConnexionAdminComponent},
   {path: "inscription", component: InscriptionComponent},
