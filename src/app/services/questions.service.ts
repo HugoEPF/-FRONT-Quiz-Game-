@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {filter, map, Observable, of, take} from "rxjs";
-import {Quizz} from "../models/Quizz";
-import {QuizzService} from "./quizz.service";
+import {Observable} from "rxjs";
 import {Questions} from "../models/Questions";
 
 @Injectable({

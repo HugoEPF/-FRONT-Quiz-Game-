@@ -5,7 +5,7 @@ import {Location} from "@angular/common";
 import {Questions} from "../models/Questions";
 import {ReponseService} from "../services/reponse.service";
 import {Reponse} from "../models/Reponse";
-import {forkJoin, map, Observable, of, switchMap, take} from "rxjs";
+import {forkJoin, map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-questions',
