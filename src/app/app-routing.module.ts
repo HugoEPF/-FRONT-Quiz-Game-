@@ -12,13 +12,12 @@ import {ChoixThemeAdminComponent} from "./choix-theme-admin/choix-theme-admin.co
 import {CreationQuizComponent} from "./creation-quiz/creation-quiz.component";
 import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
-
 import {CreationUserComponent} from "./creation-user/creation-user.component";
-
-
+import {InscriptionComponent} from "./inscription/inscription.component";
 
 const routes: Routes = [
   {path: "", component: ConnexionComponent},
+  {path: "inscription", component: InscriptionComponent},
   {path: "choix_theme", component: ChoixThemeComponent},
   {path: "lien/:genre", component: LienComponent},
   {path: "classement", component: ClassementComponent},
@@ -32,7 +31,6 @@ const routes: Routes = [
   {path: "creation_user", component: CreationUserComponent},
   {path: "edit_quiz", component: EditQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
-
 ]
 
 @NgModule({

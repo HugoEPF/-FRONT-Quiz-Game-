@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Users} from "../models/Users";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EditUserService} from "../services/edit-user.service";
@@ -26,7 +26,6 @@ export class CreationUserComponent {
       score: 0,
     });
   }
-
 
   create() {
     const userData = this.userForm.value as Users;

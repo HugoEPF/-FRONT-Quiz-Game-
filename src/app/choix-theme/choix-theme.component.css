@@ -1,5 +1,5 @@
 body {
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
   align-items: center;
   margin: 0;
@@ -21,35 +21,16 @@ body {
 }
 
 button {
+  background: linear-gradient(90deg, #1fa2ff, #1f88ff, #1f5eff, #4866ff);
   color: #FFFFFF;
-  padding: 10px 20px;
-  width: 40%;
-  height: 200px;
+  padding: 5px;
+  width: 100%;
+  height: fit-content;
   font-size: 22px;
-  border-radius: 30px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 30px;
+  margin: 0 20px 20px;
+  border: none;
 }
 
-.Sport {
-  background-color: #ff2d00;
-  border: 2px solid #bd0000;
-}
-
-.Musique {
-  background-color: #1ac400;
-  border: 2px solid #0e8800;
-}
-
-.Cinema {
-  background-color: #0026e1;
-  border: 2px solid #001aa9;
-}
-
-.Culture {
-  background-color: #ff8800;
-  border: 2px solid #bd6500;
-}

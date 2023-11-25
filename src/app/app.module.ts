@@ -14,13 +14,12 @@ import {GestionQuizComponent} from './gestion-quiz/gestion-quiz.component';
 import {GestionUserComponent} from './gestion-user/gestion-user.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
-
 import {NavbarAdminComponent} from './navbar-admin/navbar-admin.component';
 import {EditQuizComponent} from './edit-quiz/edit-quiz.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {NavbarUserComponent} from './navbar-user/navbar-user.component';
-import { CreationUserComponent } from './creation-user/creation-user.component';
-
+import {CreationUserComponent} from './creation-user/creation-user.component';
+import {InscriptionComponent} from './inscription/inscription.component';
 
 
 @NgModule({
@@ -35,12 +34,18 @@ import { CreationUserComponent } from './creation-user/creation-user.component';
     ChoixThemeAdminComponent,
     CreationQuizComponent,
     GestionQuizComponent,
+    QuestionsComponent,
+    AccueilAdminComponent,
+    ChoixThemeAdminComponent,
+    CreationQuizComponent,
+    GestionQuizComponent,
     GestionUserComponent,
     NavbarAdminComponent,
     EditQuizComponent,
     EditUserComponent,
     NavbarUserComponent,
     CreationUserComponent,
+    InscriptionComponent,
 
   ],
   imports: [
@@ -48,10 +53,11 @@ import { CreationUserComponent } from './creation-user/creation-user.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
