@@ -52,8 +52,8 @@ export class LienComponent {
     }).subscribe(result => {
       // Les deux appels asynchrones sont terminés
       const questions = result.lengthQuestions;
-      this.lengthTableGenre = Math.floor(Math.random() * questions.length);
-      this.id = questions.at(this.lengthTableGenre)?.id;
+      //this.lengthTableGenre = Math.floor(Math.random() * questions.length);
+      this.id = questions.at(0)?.id;
       this.router.navigateByUrl('/question/' + this.genreQuestion() + '/' + this.id);
     });
   }
