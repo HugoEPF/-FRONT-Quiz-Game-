@@ -1,12 +1,8 @@
-import {Component, OnInit, Renderer2} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {QuizzService} from "../services/quizz.service";
-import {catchError, first, firstValueFrom, map, Observable, of, take} from "rxjs";
+import {Observable} from "rxjs";
 import {Quizz} from "../models/Quizz";
-import {Questions} from "../models/Questions";
-
-import {QuestionsService} from "../services/questions.service";
 import {Users} from "../models/Users";
-import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-choix-theme',
@@ -15,26 +11,19 @@ import {UserService} from "../services/user.service";
 })
 export class ChoixThemeComponent implements OnInit {
   user: Users | null = null;
-
+  // Trouver tous les quizz pour pouvoir trouver le genre/thème
   theme$: Observable<Quizz[]> = this.quizzService.findAll()
-  question$: Observable<Questions[]> = this.questionService.findAll()
-
   constructor(
-    private userService: UserService,
     private quizzService: QuizzService,
-    private questionService: QuestionsService
   ) {
   }
-
+  // Initialisation de la classe pour prendre les informations de l'utilisateur qui ont été enregistré dans le navigateur
   ngOnInit(): void {
-    // this.currentUser = this.userService.getCurrentUser();
     const userString = localStorage.getItem('user');
     if (userString) {
       this.user = JSON.parse(userString);
-      console.log(this.user);
     }
-    // console.log(this.currentUser)
-    // Faites quelque chose avec l'utilisateur actuel...
+
   }
 
 }

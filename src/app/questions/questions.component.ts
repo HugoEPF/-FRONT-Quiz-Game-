@@ -7,7 +7,6 @@ import {ReponseService} from "../services/reponse.service";
 import {Reponse} from "../models/Reponse";
 import {forkJoin, map, Observable} from "rxjs";
 import {Users} from "../models/Users";
-import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-questions',
@@ -25,9 +24,11 @@ export class QuestionsComponent implements OnInit {
   user: Users | null = null;
   score: number = 0
 
-
+// Trouver les questions en fonctions de leurs id
   // @ts-ignore
   question$: Observable<Questions[]> = this.questionService.findQuestionsById(BigInt(this.getId()))
+
+  // Trouver les réponses en fonctions de leurs id
   // @ts-ignore
   reponse$: Observable<Reponse[]> = this.reponseService.findReponsesById(BigInt(this.getId()))
 
@@ -36,13 +37,12 @@ export class QuestionsComponent implements OnInit {
     private questionService: QuestionsService,
     private location: Location,
     private reponseService: ReponseService,
-    private userService: UserService,
     private router: Router) {
     this.genre = this.route.snapshot.params['genre'];
     this.score = Number(localStorage.getItem('score'))
 
   }
-
+  // Initialisation de la classe pour prendre les informations de l'utilisateur qui ont été enregistré dans le navigateur
   ngOnInit(): void {
     const userString = localStorage.getItem('user');
     if (userString) {
@@ -50,20 +50,22 @@ export class QuestionsComponent implements OnInit {
       console.log(this.user);
     }
   }
-
+  // Trouver l'id de la question avec l'url en cours (renvoyer après choix_theme)
   getId(): string | undefined {
     let url = this.currentUrl = this.location.path()
     const match = url.match(/\d+$/);
     return this.lastNumber = match ? match[0] : undefined;
 
   }
-
+  // Trouver le genre de la question avec l'url en cours (renvoyer après choix_theme)
   getGenre(): string | undefined {
     let url = this.currentUrl = this.location.path()
     const segments = url.split('/');
     return segments[segments.indexOf('question') + 1]
   }
 
+  // Trouver la bonne couleur lorsqu'on clique sur une des réponses proposées
+  // Couleur initial si pas de sélection
   isCorrectColor(index: number): string {
     return this.selectedAnswerIndex !== null ?
       index == this.correctAnswerIndex
@@ -74,45 +76,57 @@ export class QuestionsComponent implements OnInit {
 
   }
 
-
+// Fonction activée lorsqu'on clique sur une des réponses
   handleClick(index: number) {
+    // Si la sélection de réponse est null
     if (this.selectedAnswerIndex === null) {
+      // On sélectionne l'index choisis par l'utilisateur
       this.selectedAnswerIndex = index;
+      // On cherche avec la fonction findGoodAnswerIndex, l'index de la bonne réponses dans l'api'
       this.findGoodAnswerIndex(true).subscribe(correctIndex => {
         if (index !== undefined) {
+          // On insère la bonne index
           this.correctAnswerIndex = correctIndex
           console.log('Correct Answer Index:' + correctIndex)
+          // Si l'index choisis par l'utilisateur est égale à la bonne index, on augmente son score
           if (index == correctIndex) {
             this.score++
             localStorage.setItem('score', JSON.stringify(this.score));
+            // Sinon son score est le même
           } else {
             localStorage.setItem('score', JSON.stringify(this.score));
           }
+          // On passe à la question suivante
           this.nextQuestion(index)
         }
       })
     }
   }
 
+// Trouver l'index de la bonne réponse dans l'api
   findGoodAnswerIndex(isGood: boolean): Observable<number | undefined> {
     return this.reponse$.pipe(
       map(reponses => reponses.findIndex(reponse => reponse.isgood === isGood))
     );
   }
 
+  // Passer à la question suivante
   nextQuestion(index: number) {
+    //Attendre 1,5 le temps de voir la bonne réponse
     setTimeout(() => {
       forkJoin({
         lengthQuestions: this.searchQuestion(),
         indexCurrentQuestion: this.findQuestionIndex()
       }).subscribe(result => {
+        // Prendre l'index en cours
         const currentIndex = result.indexCurrentQuestion;
-        // Vérifiez s'il y a une question suivante
+        // Vérifier s'il y a une question suivante
         if (currentIndex + 1 < result.lengthQuestions.length) {
           const nextQuestion = result.lengthQuestions[currentIndex + 1];
           const nextQuestionId = nextQuestion.id;
           // Redirection vers la question suivante
           this.router.navigateByUrl('/question/' + this.getGenre() + '/' + nextQuestionId).then(() => {
+            // Actualisation de la page
             window.location.reload();
           });
         } else {
@@ -123,11 +137,12 @@ export class QuestionsComponent implements OnInit {
     }, 1500);
   }
 
+  // Chercher une question
   searchQuestion(): Observable<Questions[]> {
     return this.questionService.findQuestionsByGenre(this.getGenre()).pipe(
     );
   }
-
+  // Trouver l'index de la question en cours
   findQuestionIndex(): Observable<number> {
     return this.questionService.findQuestionsByGenre(this.getGenre()).pipe(
       map(questions => {
