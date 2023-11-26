@@ -20,6 +20,7 @@ import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
 import {CreationQuestionComponent} from "./creation-question/creation-question.component";
 import {CreationReponseComponent} from "./creation-reponse/creation-reponse.component";
 import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
+import {EditQuestionComponent} from "./edit-question/edit-question.component";
 
 const routes: Routes = [
   {path: "", component: ConnexionComponent},
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: "creation_user", component: CreationUserComponent},
   {path: "creation_question/:genre/:id", component: CreationQuestionComponent},
   {path: "creation_reponse/:id", component: CreationReponseComponent},
-  {path: "edit_question/:id", component: DetailQuestionComponent},
+  {path: "detail_question/:id", component: DetailQuestionComponent},
+  {path: "edit_question/:id", component: EditQuestionComponent},
   {path: "edit_user/:id", component: EditUserComponent},
   {path: "", component: PageAccueilComponent},
   {path: "detail_quiz/:genre/:id", component: DetailQuizComponent},

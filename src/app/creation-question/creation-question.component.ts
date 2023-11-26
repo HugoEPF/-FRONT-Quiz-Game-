@@ -23,8 +23,6 @@ export class CreationQuestionComponent {
 
 
   create() {
-
-
     const questionData = this.questionForm.value as Questions;
     questionData.quizz= { id: this.route.snapshot.params['id'] };
     this.questionService.create(questionData).subscribe(() => {

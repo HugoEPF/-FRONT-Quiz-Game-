@@ -10,13 +10,10 @@ import {QuestionsService} from "../services/questions.service";
   styleUrls: ['./detail-quiz.component.css']
 })
 export class DetailQuizComponent {
-
   quizGenre: string = this._route.snapshot.params['genre'];
   quizId: string = this._route.snapshot.params['id'];
   quizz$: Observable<Questions[]> = this.questionsService.findQuestionsByGenre(this.quizGenre)
   constructor(private questionsService: QuestionsService,  private _route: ActivatedRoute, private router: Router) {
-
-
   }
 
 

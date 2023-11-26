@@ -26,6 +26,7 @@ import {CreationUserComponent} from './creation-user/creation-user.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.component';
+import { EditQuestionComponent } from './edit-question/edit-question.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.compo
     CreationReponseComponent,
     EditQuizComponent,
     InscriptionComponent,
+    EditQuestionComponent,
 
     InscriptionComponent,
     PageAccueilComponent,
