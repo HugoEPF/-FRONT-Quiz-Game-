@@ -20,6 +20,7 @@ export class CreationUserComponent {
     private router: Router,
     private fb: FormBuilder
   ) {
+    // Initialisation du formulaire réactif avec le FormBuilder
     this.userForm = this.fb.group({
       pseudo: '',
       email: '',
@@ -27,13 +28,17 @@ export class CreationUserComponent {
     });
   }
 
+  // Méthode pour créer un nouvel utilisateur
   create() {
+    // Récupération des données du formulaire
     const userData = this.userForm.value as Users;
     this.userService.create(userData).subscribe(() => {
       this.router.navigate(["gestion_user"])
     })
   }
+
   submitForm() {
+    // Si le formulaire est valide alors on crée
     if (this.userForm.valid) {
       this.create();
     }

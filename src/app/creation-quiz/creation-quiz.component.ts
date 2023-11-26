@@ -19,20 +19,27 @@ export class CreationQuizComponent {
     private quizService: QuizzService,
     private router: Router,
     private fb: FormBuilder
-  ){
-  this.quizForm = this.fb.group({
-    genre: '',
-  });
-}
+  ) {
+    // Initialisation du formulaire réactif avec le FormBuilder
+    this.quizForm = this.fb.group({
+      genre: '',
+    });
+  }
+
+  // Méthode pour créer un nouveau quiz
   create() {
+    // Récupération des données du formulaire
     const quizData = this.quizForm.value as Quizz;
     this.quizService.create(quizData).subscribe(() => {
       this.router.navigate(["gestion_quiz"]).then(() => {
+        // Rechargement de la page pour afficher la nouvelle BDD
         window.location.reload();
-    })})
+      })
+    })
   }
 
   submitForm() {
+    // Si le formulaire est valide alors on crée
     if (this.quizForm.valid) {
       this.create();
     }

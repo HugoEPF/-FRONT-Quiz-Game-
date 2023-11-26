@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class GestionQuizComponent {
 
+  // Observable pour stocker la liste des quizzes
   quizz$: Observable<Quizz[]> = this.quizzService.findAll();
 
   constructor(
@@ -20,9 +21,12 @@ export class GestionQuizComponent {
   ) {
   }
 
-  deleteQuestion(quizz: Quizz): void {
+  // Méthode pour supprimer un quiz
+  deleteQuiz(quizz: Quizz): void {
     if (quizz.id !== undefined) {
+      // Conversion de l'identifiant du quiz en bigint
       const QuizzId: bigint = BigInt(quizz.id);
+      // Appel du service pour supprimer le quiz
       this.quizzService.delete(QuizzId).subscribe(() => {
         // Filtrer les quizzes pour exclure celui qui vient d'être supprimé
         this.quizz$ = this.quizz$.pipe(
