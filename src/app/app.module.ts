@@ -25,7 +25,6 @@ import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.compo
 
 import { CreationQuestionComponent } from './creation-question/creation-question.component';
 import { CreationReponseComponent } from './creation-reponse/creation-reponse.component';
-import { EditQuizComponent } from './edit-quiz/edit-quiz.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { EditReponseComponent } from './edit-reponse/edit-reponse.component';
@@ -58,9 +57,9 @@ import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
     DetailQuizComponent,
     CreationQuestionComponent,
     CreationReponseComponent,
-    EditQuizComponent,
     InscriptionComponent,
     EditQuestionComponent,
+    EditReponseComponent,
 
     DetailQuizComponent,
     CreationQuestionComponent,
