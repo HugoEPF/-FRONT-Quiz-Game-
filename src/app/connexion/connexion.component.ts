@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Users} from '../models/Users';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {UserService} from "../services/user.service";
 
 @Component({
@@ -15,43 +15,36 @@ export class ConnexionComponent {
   errorMessage: string | undefined;
 
   constructor(
-    private _route: ActivatedRoute,
     private userService: UserService,
     private router: Router
   ) {
   }
 
   onSubmit() {
-    this.errorMessage = ''; // Réinitialiser le message d'erreur
-
-    // Vérifier si l'e-mail a été saisi
+    // On réinitialise le message d'erreur
+    this.errorMessage = '';
+    // On vérifie si l'e-mail a été saisi puis on appelle la fonction findByMail avec l'email saisi
     if (this.email.trim() !== '') {
-      // Appeler la fonction findByMail avec l'e-mail saisi
       this.user$ = this.userService.findByMail(this.email);
-
-      // S'abonner au résultat
       this.user$.subscribe(
         (user) => {
-          // Vérifier si l'utilisateur existe
+          // On vérifie si l'utilisateur existe
           if (user) {
-            console.log(user);
+            // On stocke l'objet correspondant à l'utilisateur dans son navigateur
             localStorage.setItem('user', JSON.stringify(user));
-            // this.userService.setCurrentUser(user);
-            // Rediriger vers la page de choix de thème si l'utilisateur existe
+            // On redirige vers la page de choix de thème
             this.router.navigate(['/choix_theme']);
           } else {
-            // Gérer le cas où l'utilisateur n'existe pas
+            // Si l'utilisateur n'est pas trouvé dans la BDD, on affiche un message d'erreur
             this.errorMessage = 'Utilisateur non trouvé.';
           }
         },
         (error) => {
-          // Gérer les erreurs de la requête
-          console.error('Erreur de requête :', error);
           this.errorMessage = 'Erreur de requête.';
         }
       );
     } else {
-      // Gérer le cas où l'e-mail n'a pas été saisi
+      // Si l'utilisateur ne renseigne pas de mail, on affiche un message d'erreur
       this.errorMessage = 'Veuillez saisir votre adresse e-mail.';
     }
   }

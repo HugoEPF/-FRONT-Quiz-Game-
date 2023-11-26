@@ -1,9 +1,6 @@
 import {Component} from '@angular/core';
-
-
 import {Users} from "../models/Users";
 import {Observable} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../services/user.service";
 
 @Component({
@@ -13,20 +10,12 @@ import {UserService} from "../services/user.service";
 })
 export class GestionUserComponent {
 
+  // Observable pour stocker la liste des utilisateurs
   user$: Observable<Users[]> = this.userService.findAll()
 
-  constructor(private _route: ActivatedRoute, private userService: UserService, private router: Router,) {
-
-
+  constructor(
+    private userService: UserService,
+  ) {
   }
-
-  deleteUser(userId: bigint | undefined): void {
-    this.userService.delete(userId).subscribe(() => this.router.navigate(["gestion_user"]))
-  }
-
-
-
-
-
 
 }

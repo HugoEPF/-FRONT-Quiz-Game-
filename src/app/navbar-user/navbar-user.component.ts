@@ -10,6 +10,7 @@ export class NavbarUserComponent {
   constructor(private userService: UserService) {
   }
 
+  // Méthode appelée lors de la déconnexion de l'utilisateur
   logout(): void {
     this.userService.logout();
   }

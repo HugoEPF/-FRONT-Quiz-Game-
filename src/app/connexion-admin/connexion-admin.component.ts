@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Observable} from "rxjs";
 import {Admins} from "../models/Admins";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {AdminService} from "../services/admin.service";
 
 @Component({
@@ -15,37 +15,33 @@ export class ConnexionAdminComponent {
   errorMessage: string | undefined;
 
   constructor(
-    private _route: ActivatedRoute,
     private adminService: AdminService,
     private router: Router
   ) {
   }
 
   onSubmit() {
-    this.errorMessage = ''; // Réinitialiser le message d'erreur
-
-    // Vérifier si l'e-mail a été saisi
+    // On réinitialise le message d'erreur
+    this.errorMessage = '';
+    // On vérifie si l'e-mail a été saisi puis on appelle la fonction findByMail avec l'email saisi
     if (this.email.trim() !== '') {
       this.admin$ = this.adminService.findByMail(this.email);
-
       this.admin$.subscribe(
+        // On vérifie si l'administrateur existe
         (admin) => {
           if (admin && admin.email !== undefined) {
-            // Rediriger vers la page accueil_admin ou une autre page spécifique si nécessaire
             this.router.navigate(['/accueil_admin']);
           } else {
-            // Gérer le cas où l'e-mail de l'administrateur est indéfini
+            // Si l'administrateur n'est pas trouvé dans la BDD, on affiche un message d'erreur
             this.errorMessage = "L'e-mail de l'administrateur est indéfini.";
           }
         },
         (error) => {
-          // Gérer les erreurs de la requête
-          console.error('Erreur de requête administrateur :', error);
           this.errorMessage = 'Erreur de requête administrateur.';
         }
       );
     } else {
-      // Gérer le cas où l'e-mail n'a pas été saisi
+      // Si l'utilisateur ne renseigne pas de mail, on affiche un message d'erreur
       this.errorMessage = 'Veuillez saisir votre adresse e-mail.';
     }
   }
