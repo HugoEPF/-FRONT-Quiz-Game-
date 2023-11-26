@@ -14,7 +14,7 @@ import {GestionUserService} from "../services/gestion-user.service";
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css']
 })
-export class QuestionsComponent implements OnInit{
+export class QuestionsComponent implements OnInit {
   genre: string;
   currentUrl: string | undefined;
   lastNumber: string | undefined;
@@ -23,8 +23,7 @@ export class QuestionsComponent implements OnInit{
   color: string | undefined
   id: bigint | undefined
   user: Users | null = null;
-  score:number= 0
-
+  score: number = 0
 
 
   // @ts-ignore
@@ -50,7 +49,7 @@ export class QuestionsComponent implements OnInit{
       this.user = JSON.parse(userString);
       console.log(this.user);
     }
-    }
+  }
 
   getId(): string | undefined {
     let url = this.currentUrl = this.location.path()
@@ -79,19 +78,19 @@ export class QuestionsComponent implements OnInit{
   handleClick(index: number) {
     if (this.selectedAnswerIndex === null) {
       this.selectedAnswerIndex = index;
-        this.findGoodAnswerIndex(true).subscribe(correctIndex => {
-          if (index !== undefined) {
-            this.correctAnswerIndex =correctIndex
-            console.log('Correct Answer Index:' +correctIndex)
-            if(index == correctIndex) {
-              this.score++
-              localStorage.setItem('score', JSON.stringify(this.score));
-            } else {
-              localStorage.setItem('score', JSON.stringify(this.score));
-            }
-            this.nextQuestion(index)
+      this.findGoodAnswerIndex(true).subscribe(correctIndex => {
+        if (index !== undefined) {
+          this.correctAnswerIndex = correctIndex
+          console.log('Correct Answer Index:' + correctIndex)
+          if (index == correctIndex) {
+            this.score++
+            localStorage.setItem('score', JSON.stringify(this.score));
+          } else {
+            localStorage.setItem('score', JSON.stringify(this.score));
           }
-        })
+          this.nextQuestion(index)
+        }
+      })
     }
   }
 
@@ -102,26 +101,26 @@ export class QuestionsComponent implements OnInit{
   }
 
   nextQuestion(index: number) {
-      setTimeout(() => {
-        forkJoin({
-          lengthQuestions: this.searchQuestion(),
-          indexCurrentQuestion: this.findQuestionIndex()
-        }).subscribe(result => {
-          const currentIndex = result.indexCurrentQuestion;
-          // Vérifiez s'il y a une question suivante
-          if (currentIndex + 1 < result.lengthQuestions.length) {
-            const nextQuestion = result.lengthQuestions[currentIndex + 1];
-            const nextQuestionId = nextQuestion.id;
-            // Redirection vers la question suivante
-            this.router.navigateByUrl('/question/' + this.getGenre() + '/' + nextQuestionId).then(() => {
-              window.location.reload();
-            });
-          } else {
-            // Si aucune question suivante, rediriger vers 'choix_theme'
-            this.router.navigateByUrl('/choix_theme');
-          }
-        });
-      }, 1500);
+    setTimeout(() => {
+      forkJoin({
+        lengthQuestions: this.searchQuestion(),
+        indexCurrentQuestion: this.findQuestionIndex()
+      }).subscribe(result => {
+        const currentIndex = result.indexCurrentQuestion;
+        // Vérifiez s'il y a une question suivante
+        if (currentIndex + 1 < result.lengthQuestions.length) {
+          const nextQuestion = result.lengthQuestions[currentIndex + 1];
+          const nextQuestionId = nextQuestion.id;
+          // Redirection vers la question suivante
+          this.router.navigateByUrl('/question/' + this.getGenre() + '/' + nextQuestionId).then(() => {
+            window.location.reload();
+          });
+        } else {
+          // Si aucune question suivante, rediriger vers 'choix_theme'
+          this.router.navigateByUrl('/classement');
+        }
+      });
+    }, 1500);
   }
 
   searchQuestion(): Observable<Questions[]> {
