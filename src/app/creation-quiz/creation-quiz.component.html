@@ -1,24 +1,22 @@
 <app-navbar-admin></app-navbar-admin>
 <div class="contenu">
-  <form [formGroup]="quizForm">
+  <form class="row g-3 needs-validation" novalidate [formGroup]="quizForm" (ngSubmit)="create()">
     <div class="mb-3 row">
       <label for="quiz_genre" class="col-sm-2 col-form-label">Genre</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="quiz_genre" formControlName="genre">
+        <input type="text" class="form-control" id="quiz_genre" formControlName="genre" required>
+        <div class="mb-3 text-danger"
+             *ngIf="quizForm.get('genre')?.invalid && (quizForm.get('genre')?.dirty || quizForm.get('genre')?.touched) || (submitted && quizForm.invalid)">
+          Veuillez fournir un genre.
+        </div>
       </div>
     </div>
 
-    <div class="mb-3 row" style="margin-bottom: 20px;">
-      <label for="quiz_nb_questions" class="col-sm-2 col-form-label">Nombre_Questions</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="quiz_nb_questions" formControlName="nombre_questions">
-      </div>
-    </div>
 
     <div class="mb-3 row" style="margin-bottom: 20px;">
       <label class="col-sm-1 col-form-label"></label>
       <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary" (click)="create()" [routerLink]="'/gestion_quiz'">Créer</button>
+        <button type="submit" class="btn btn-primary" (click)="submitForm()" [routerLink]="'/gestion_quiz'">Créer</button>
       </div>
     </div>
   </form>

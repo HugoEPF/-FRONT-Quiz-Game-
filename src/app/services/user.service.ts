@@ -13,6 +13,23 @@ export class UserService {
 
   private userUrl = "http://localhost:8080/users"
 
+  private currentUser: Users | null = null;
+
+  setCurrentUser(user: Users | null): void {
+    this.currentUser = user;
+  }
+
+  getCurrentUser(): Users | null {
+    return this.currentUser;
+  }
+
+  logout(): void {
+    // Déconnexion : supprimer l'utilisateur du localStorage
+    localStorage.removeItem('user');
+    // Réinitialiser l'utilisateur dans le service
+    this.setCurrentUser(null);
+  }
+
   delete(id: bigint | undefined): Observable<{}> {
     return this.http.delete(`${this.userUrl}/${id}`, { responseType: 'text' });
   }
@@ -29,5 +46,8 @@ export class UserService {
   }
   findAll() : Observable<Users[]> {
     return this.http.get<Users[]>(this.userUrl )
+  }
+  findByMail(email: String): Observable<Users>{
+    return this.http.get<Users>(`${this.userUrl}/email/${email}`)
   }
 }

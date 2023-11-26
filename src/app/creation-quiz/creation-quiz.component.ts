@@ -12,6 +12,7 @@ import {QuizzService} from "../services/quizz.service";
 export class CreationQuizComponent {
 
   quizForm: FormGroup;
+  submitted = false;
 
   constructor(
     private _route: ActivatedRoute,
@@ -21,7 +22,6 @@ export class CreationQuizComponent {
   ){
   this.quizForm = this.fb.group({
     genre: '',
-    nombre_questions: 0
   });
 }
   create() {
@@ -30,5 +30,11 @@ export class CreationQuizComponent {
       this.router.navigate(["gestion_quiz"]).then(() => {
         window.location.reload();
     })})
+  }
+
+  submitForm() {
+    if (this.quizForm.valid) {
+      this.create();
+    }
   }
 }

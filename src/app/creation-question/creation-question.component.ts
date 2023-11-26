@@ -12,6 +12,9 @@ import {Users} from "../models/Users";
 })
 export class CreationQuestionComponent {
   questionForm: FormGroup;
+  submitted=false;
+  genre = this.route.snapshot.paramMap.get('genre');
+  quizzId = this.route.snapshot.params['id'];
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder,private questionService: QuestionsService, private router: Router) {
       this.questionForm = this.fb.group({
@@ -28,5 +31,11 @@ export class CreationQuestionComponent {
     this.questionService.create(questionData).subscribe(() => {
       this.router.navigate([`detail_quiz/${questionData.genre}/${questionData.quizz?.id}`]);
     });
+  }
+
+  submitForm() {
+    if (this.questionForm.valid) {
+      this.create();
+    }
   }
 }

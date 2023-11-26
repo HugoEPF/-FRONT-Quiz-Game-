@@ -7,7 +7,7 @@ import {ReponseService} from "../services/reponse.service";
 import {Reponse} from "../models/Reponse";
 import {forkJoin, map, Observable} from "rxjs";
 import {Users} from "../models/Users";
-import {GestionUserService} from "../services/gestion-user.service";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-questions',
@@ -36,7 +36,7 @@ export class QuestionsComponent implements OnInit {
     private questionService: QuestionsService,
     private location: Location,
     private reponseService: ReponseService,
-    private userService: GestionUserService,
+    private userService: UserService,
     private router: Router) {
     this.genre = this.route.snapshot.params['genre'];
     this.score = Number(localStorage.getItem('score'))

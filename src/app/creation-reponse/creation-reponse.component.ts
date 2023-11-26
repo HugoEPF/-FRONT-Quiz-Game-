@@ -12,6 +12,8 @@ export class CreationReponseComponent implements OnInit{
   reponseForm: FormGroup;
   existingReponses: Reponse[] = [];
   errorMessage: string = '';
+  submitted = false;
+  reponseId = this._route.snapshot.params['id'];
 
   constructor(
     private _route: ActivatedRoute,
@@ -53,10 +55,15 @@ export class CreationReponseComponent implements OnInit{
       reponseData.question = { id: this._route.snapshot.params['id'] };
       this.reponseService.create(reponseData).subscribe(() => {
         this.loadExistingReponses(); // Recharger les réponses après la création
-        this.router.navigate([`edit_question/${reponseData.question?.id}`]);
+        this.router.navigate([`detail_question/${reponseData.question?.id}`]);
       });
     } else {
       this.errorMessage = "Impossible de créer plus de 4 réponses pour une question.";
+    }
+  }
+  submitForm() {
+    if (this.reponseForm.valid) {
+      this.create();
     }
   }
 

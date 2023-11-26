@@ -13,7 +13,6 @@ import {CreationQuizComponent} from "./creation-quiz/creation-quiz.component";
 import {DetailQuestionComponent} from "./detail-question/detail-question.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {CreationUserComponent} from "./creation-user/creation-user.component";
-import {InscriptionComponent} from "./inscription/inscription.component";
 import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
 import {CreationQuestionComponent} from "./creation-question/creation-question.component";
 import {CreationReponseComponent} from "./creation-reponse/creation-reponse.component";
@@ -31,7 +30,7 @@ import {EditQuestionComponent} from "./edit-question/edit-question.component";
 import {EditReponseComponent} from "./edit-reponse/edit-reponse.component";
 
 const routes: Routes = [
-  {path: "", component: ConnexionComponent},
+  {path: "connexion", component: ConnexionComponent},
   {path: "inscription", component: InscriptionComponent},
   {path: "connexion", component: ConnexionComponent},
   {path: "connexion_admin", component: ConnexionAdminComponent},
@@ -60,6 +59,8 @@ const routes: Routes = [
   {path: "detail_quiz/:genre/:id", component: DetailQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
   {path: "detail_quiz/:genre", component: DetailQuizComponent},
+  {path: "", component: PageAccueilComponent},
+
 
   {path: "", component: PageAccueilComponent},
 ]

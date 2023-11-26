@@ -5,7 +5,7 @@ import {QuestionsService} from "../services/questions.service";
 import {Questions} from "../models/Questions";
 import { Router } from '@angular/router';
 import {Users} from "../models/Users";
-import {GestionUserService} from "../services/gestion-user.service";
+import {UserService} from "../services/user.service";
 
 
 @Component({
@@ -24,7 +24,7 @@ export class LienComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private location: Location,
-    private userService: GestionUserService,
+    private userService: UserService,
     private questionService: QuestionsService,
     private router: Router
   ) {

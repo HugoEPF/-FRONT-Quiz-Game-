@@ -11,7 +11,7 @@ import {UserService} from "../services/user.service";
 })
 export class CreationUserComponent {
 
-
+  submitted = false;
   userForm: FormGroup;
 
   constructor(
@@ -32,6 +32,11 @@ export class CreationUserComponent {
     this.userService.create(userData).subscribe(() => {
       this.router.navigate(["gestion_user"])
     })
+  }
+  submitForm() {
+    if (this.userForm.valid) {
+      this.create();
+    }
   }
 
 }
