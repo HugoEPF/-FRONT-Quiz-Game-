@@ -13,7 +13,12 @@
       <td>{{ quizz.id }}</td>
       <td>{{ quizz.genre }}</td>
       <td>
-        <button class="btn btn-success" routerLink="/detail_quiz/{{quizz.genre}}/{{quizz.id}}">Détails</button>
+        <button class="btn btn-success" routerLink="/detail_quiz/{{quizz.genre}}/{{quizz.id}}"
+                style="background: linear-gradient(90deg, #198733, #0e862a); margin-right: 5px">Détails
+        </button>
+        <button class="btn btn-danger" (click)="deleteQuestion(quizz)"
+                style="background: linear-gradient(90deg, #d20101, #e50000); margin-right: 5px">Supprimer
+        </button>
       </td>
     </tr>
 
