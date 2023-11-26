@@ -16,20 +16,21 @@
       <td>{{ quizz.genre }}</td>
       <td>{{ quizz.contenu}}</td>
       <td>
-        <a class="btn btn-success" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
-          <img src="/assets/pencil.svg" alt="Editer" routerLink="/detail_question/{{quizz.id}}">
-        </a>
-        <button class="btn btn-warning" routerLink="/edit_question/{{quizz.id}}">Mettre à jour</button>
-
-
+        <button class="btn btn-success" routerLink="/detail_question/{{quizz.id}}"
+                style="background: linear-gradient(90deg, #198733, #0e862a); margin-right: 5px">Détails
+        </button>
+        <button class="btn" routerLink="/edit_question/{{quizz.id}}"
+                style="background: linear-gradient(90deg, #3f9fff, #3f7cff); color: white">Editer
+        </button>
       </td>
     </tr>
-
     </tbody>
   </table>
 
   <div class="d-flex align-items-center justify-content-center">
-    <button type="button" class="btn btn-primary" routerLink="/creation_question/{{quizGenre}}/{{quizId}}">Créer une question</button>
+    <button type="button" class="btn btn-primary" routerLink="/creation_question/{{quizGenre}}/{{quizId}}"
+            style="background: linear-gradient(90deg, #0d6efd, #0d19fd);">Créer une question
+    </button>
   </div>
 
 </div>

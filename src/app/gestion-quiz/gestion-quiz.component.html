@@ -13,9 +13,7 @@
       <td>{{ quizz.id }}</td>
       <td>{{ quizz.genre }}</td>
       <td>
-        <a class="btn btn-success" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
-          <img src="/assets/pencil.svg" alt="Editer" routerLink="/detail_quiz/{{quizz.genre}}/{{quizz.id}}">
-        </a>
+        <button class="btn btn-success" routerLink="/detail_quiz/{{quizz.genre}}/{{quizz.id}}">Détails</button>
       </td>
     </tr>
 
