@@ -34,6 +34,9 @@ export class ConnexionComponent {
         (user) => {
           // Vérifier si l'utilisateur existe
           if (user) {
+            console.log(user);
+            localStorage.setItem('user', JSON.stringify(user));
+            // this.userService.setCurrentUser(user);
             // Rediriger vers la page de choix de thème si l'utilisateur existe
             this.router.navigate(['/choix_theme']);
           } else {

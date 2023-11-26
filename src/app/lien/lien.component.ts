@@ -1,9 +1,11 @@
-import {Component, Renderer2} from '@angular/core';
-import { Location } from '@angular/common';
+import {Component, OnInit, Renderer2} from '@angular/core';
+import {Location} from '@angular/common';
 import {forkJoin, map, Observable} from "rxjs";
 import {QuestionsService} from "../services/questions.service";
 import {Questions} from "../models/Questions";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
+import {Users} from "../models/Users";
+import {GestionUserService} from "../services/gestion-user.service";
 
 
 @Component({
@@ -11,36 +13,42 @@ import { Router } from '@angular/router';
   templateUrl: './lien.component.html',
   styleUrls: ['./lien.component.css']
 })
-export class LienComponent {
+export class LienComponent implements OnInit {
+
+  user: Users | null = null;
   currentUrl: string | undefined;
-  questions$:Observable<Questions[]> =this.questionService.findQuestionsByGenre(this.genreQuestion())
-  id:bigint | undefined
-  constructor(private renderer: Renderer2, private location:Location, private questionService:QuestionsService, private router:Router ) {
+  questions$: Observable<Questions[]> = this.questionService.findQuestionsByGenre(this.genreQuestion())
+  id: bigint | undefined
 
-  }
-  copyToClipboard() {
-    const link = 'https://www.exemple.com';
-    // -------------------------------------------
-    // REMPLACER PAR URL DU QUIZ
-    // -----------------------------------------
-    const textArea = this.renderer.createElement('textarea');
-    textArea.value = link;
-    this.renderer.appendChild(document.body, textArea);
-    textArea.select();
-    document.execCommand('copy');
-    this.renderer.removeChild(document.body, textArea);
-    alert('Lien copié : ' + link);
+  constructor(
+    private renderer: Renderer2,
+    private location: Location,
+    private userService: GestionUserService,
+    private questionService: QuestionsService,
+    private router: Router
+  ) {
   }
 
-  genreQuestion():string {
+  ngOnInit(): void {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      this.user = JSON.parse(userString);
+      console.log(this.user);
+    }
+    // this.currentUser = this.userService.getCurrentUser();
+    // console.log(this.currentUser)
+    // Faites quelque chose avec l'utilisateur actuel...
+  }
+
+  genreQuestion(): string {
     let url = this.currentUrl = this.location.path()
-    return  url.substring(6);
+    return url.substring(6);
   }
 
-  getIdQuestion():Observable<Questions[]> {
-   return this.questions$.pipe(
-     map(id_question => id_question.filter(questions => questions.id)
-    ));
+  getIdQuestion(): Observable<Questions[]> {
+    return this.questions$.pipe(
+      map(id_question => id_question.filter(questions => questions.id)
+      ));
   }
 
   getId(): void {
@@ -55,7 +63,8 @@ export class LienComponent {
       this.router.navigateByUrl('/question/' + this.genreQuestion() + '/' + this.id);
     });
   }
-  getLengthQuestions():Observable<Questions[]> {
+
+  getLengthQuestions(): Observable<Questions[]> {
     return this.questions$.pipe(
       map(questions =>
         questions.filter(question => question.genre?.length)

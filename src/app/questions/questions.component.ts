@@ -6,6 +6,8 @@ import {Questions} from "../models/Questions";
 import {ReponseService} from "../services/reponse.service";
 import {Reponse} from "../models/Reponse";
 import {forkJoin, map, Observable} from "rxjs";
+import {Users} from "../models/Users";
+import {GestionUserService} from "../services/gestion-user.service";
 
 @Component({
   selector: 'app-questions',
@@ -18,31 +20,49 @@ export class QuestionsComponent {
   lastNumber: string | undefined;
   correctAnswerIndex: number | null | undefined;
   selectedAnswerIndex: number | null = null;
-  color:string | undefined
-  id:bigint | undefined
-
+  color: string | undefined
+  id: bigint | undefined
+  user: Users | null = null;
 
 
   // @ts-ignore
   question$: Observable<Questions[]> = this.questionService.findQuestionsById(BigInt(this.getId()))
   // @ts-ignore
   reponse$: Observable<Reponse[]> = this.reponseService.findReponsesById(BigInt(this.getId()))
-  constructor(private route: ActivatedRoute, private questionService : QuestionsService,  private location:Location, private reponseService:ReponseService, private router:Router) {
+
+  constructor(
+    private route: ActivatedRoute,
+    private questionService: QuestionsService,
+    private location: Location,
+    private reponseService: ReponseService,
+    private userService: GestionUserService,
+    private router: Router) {
     this.genre = this.route.snapshot.params['genre'];
   }
 
- getId():string | undefined {
-   let url = this.currentUrl = this.location.path()
-   const match = url.match(/\d+$/);
-   return this.lastNumber = match ? match[0] : undefined;
+  ngOnInit(): void {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      this.user = JSON.parse(userString);
+      console.log(this.user);
+    }
+    // this.currentUser = this.userService.getCurrentUser();
+    // console.log(this.currentUser)
+    // Faites quelque chose avec l'utilisateur actuel...
+  }
 
-}
+  getId(): string | undefined {
+    let url = this.currentUrl = this.location.path()
+    const match = url.match(/\d+$/);
+    return this.lastNumber = match ? match[0] : undefined;
 
-getGenre():string | undefined {
-  let url = this.currentUrl = this.location.path()
-  const segments = url.split('/');
-  return segments[segments.indexOf('question') + 1]
-}
+  }
+
+  getGenre(): string | undefined {
+    let url = this.currentUrl = this.location.path()
+    const segments = url.split('/');
+    return segments[segments.indexOf('question') + 1]
+  }
 
   isCorrectColor(index: number): string {
     return this.selectedAnswerIndex !== null ?
@@ -50,21 +70,20 @@ getGenre():string | undefined {
         ? 'green' :
         index != this.correctAnswerIndex ?
           'red'
-      : "#3363FF68" : "#3363FF68"
+          : "#3363FF68" : "#3363FF68"
 
   }
-
 
 
   handleClick(index: number) {
     if (this.selectedAnswerIndex === null) {
       this.selectedAnswerIndex = index;
-        this.findGoodAnswerIndex(true).subscribe(index => {
-          if (index !== undefined) {
-            this.correctAnswerIndex =index
-            this.nextQuestion(index)
-          }
-        });
+      this.findGoodAnswerIndex(true).subscribe(index => {
+        if (index !== undefined) {
+          this.correctAnswerIndex = index
+          this.nextQuestion(index)
+        }
+      });
     }
   }
 
@@ -105,7 +124,6 @@ getGenre():string | undefined {
   }
 
 
-
   searchQuestion(): Observable<Questions[]> {
     return this.questionService.findQuestionsByGenre(this.getGenre()).pipe(
     );
@@ -119,10 +137,6 @@ getGenre():string | undefined {
       })
     );
   }
-
-
-
-
 
 
   protected readonly BigInt = BigInt;
