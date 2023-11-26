@@ -15,13 +15,20 @@ import {GestionUserComponent} from './gestion-user/gestion-user.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ConnexionComponent} from "./connexion/connexion.component";
 import {NavbarAdminComponent} from './navbar-admin/navbar-admin.component';
-import {EditQuizComponent} from './edit-quiz/edit-quiz.component';
+import {DetailQuestionComponent} from './detail-question/detail-question.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {NavbarUserComponent} from './navbar-user/navbar-user.component';
+
 import {CreationUserComponent} from './creation-user/creation-user.component';
-import {InscriptionComponent} from './inscription/inscription.component';
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.component';
+
+import { CreationQuestionComponent } from './creation-question/creation-question.component';
+import { CreationReponseComponent } from './creation-reponse/creation-reponse.component';
+import {InscriptionComponent} from './inscription/inscription.component';
+import { EditQuestionComponent } from './edit-question/edit-question.component';
+import { EditReponseComponent } from './edit-reponse/edit-reponse.component';
+import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
 
 
 @NgModule({
@@ -43,10 +50,24 @@ import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.compo
     GestionQuizComponent,
     GestionUserComponent,
     NavbarAdminComponent,
-    EditQuizComponent,
+    DetailQuestionComponent,
     EditUserComponent,
     NavbarUserComponent,
     CreationUserComponent,
+    DetailQuizComponent,
+    CreationQuestionComponent,
+    CreationReponseComponent,
+    InscriptionComponent,
+    EditQuestionComponent,
+    EditReponseComponent,
+
+    DetailQuizComponent,
+    CreationQuestionComponent,
+    CreationReponseComponent,
+    InscriptionComponent,
+    EditQuestionComponent,
+    EditReponseComponent,
+
     InscriptionComponent,
     PageAccueilComponent,
     ConnexionAdminComponent,
@@ -63,5 +84,4 @@ import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.compo
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

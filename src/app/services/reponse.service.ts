@@ -14,8 +14,19 @@ export class ReponseService {
   findReponsesById(id: bigint | undefined): Observable<Reponse[]> {
     return this.http.get<Reponse[]>(this.reponseUrl + `/${(id)}`)
   }
-
   findGoodAnswer(isgood:boolean):Observable<Reponse[]> {
     return this.http.get<Reponse[]>(this.reponseUrl + `/isGood/${(isgood)}`)
+  }
+  create(reponse: Reponse): Observable<Reponse> {
+    return this.http.post<Reponse>(`${this.reponseUrl}`, reponse);
+  }
+  update(reponse: Reponse): Observable<Reponse> {
+    return this.http.post<Reponse>(`${this.reponseUrl}`, reponse);
+  }
+  delete(id: bigint | undefined): Observable<{}> {
+    return this.http.delete(`${this.reponseUrl}/${id}`, { responseType: 'text' });
+  }
+  findById(id: bigint) : Observable<Reponse> {
+    return this.http. get<Reponse>(this.reponseUrl + `/byId/${(id)}`)
   }
 }

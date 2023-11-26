@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Users} from '../models/Users';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GestionUserService} from '../services/gestion-user.service';
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-connexion',
@@ -16,7 +16,7 @@ export class ConnexionComponent {
 
   constructor(
     private _route: ActivatedRoute,
-    private userService: GestionUserService,
+    private userService: UserService,
     private router: Router
   ) {
   }

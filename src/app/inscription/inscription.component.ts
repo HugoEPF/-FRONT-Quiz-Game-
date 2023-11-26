@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Users} from '../models/Users';
-import {EditUserService} from '../services/edit-user.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-inscription',
@@ -15,7 +15,7 @@ export class InscriptionComponent {
 
   constructor(
     private _route: ActivatedRoute,
-    private userService: EditUserService,
+    private userService: UserService,
     private router: Router,
     private fb: FormBuilder
   ) {

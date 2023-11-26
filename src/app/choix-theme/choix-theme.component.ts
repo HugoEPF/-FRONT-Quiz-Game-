@@ -4,10 +4,9 @@ import {catchError, first, firstValueFrom, map, Observable, of, take} from "rxjs
 import {Quizz} from "../models/Quizz";
 import {Questions} from "../models/Questions";
 
-import {ActivatedRoute, Router} from "@angular/router";
 import {QuestionsService} from "../services/questions.service";
 import {Users} from "../models/Users";
-import {GestionUserService} from "../services/gestion-user.service";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-choix-theme',
@@ -21,7 +20,7 @@ export class ChoixThemeComponent implements OnInit {
   question$: Observable<Questions[]> = this.questionService.findAll()
 
   constructor(
-    private userService: GestionUserService,
+    private userService: UserService,
     private quizzService: QuizzService,
     private questionService: QuestionsService
   ) {

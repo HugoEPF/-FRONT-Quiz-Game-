@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {GestionUserService} from '../services/gestion-user.service';
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-navbar-user',
@@ -7,7 +7,7 @@ import {GestionUserService} from '../services/gestion-user.service';
   styleUrls: ['./navbar-user.component.css']
 })
 export class NavbarUserComponent {
-  constructor(private userService: GestionUserService) {
+  constructor(private userService: UserService) {
   }
 
   logout(): void {

@@ -16,5 +16,17 @@ export class QuizzService {
     return this.http.get<Quizz[]>(this.quizzUrl)
   }
 
+  delete(id: bigint | undefined): Observable<{}> {
+    return this.http.delete(`${this.quizzUrl}/${id}`, { responseType: 'text' });
+  }
+  findById(id: bigint) : Observable<Quizz> {
+    return this.http.get<Quizz>(`${this.quizzUrl}/${id}`)
+  }
+  update(quizz: Quizz): Observable<Quizz> {
+    return this.http.post<Quizz>(`${this.quizzUrl}`, quizz);
+  }
+  create(quiz: Quizz): Observable<Quizz> {
+    return this.http.post<Quizz>(`${this.quizzUrl}`, quiz);
+  }
 
 }

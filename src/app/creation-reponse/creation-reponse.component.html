@@ -1,0 +1,38 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="contenu">
+  <form class="row g-3 needs-validation" novalidate [formGroup]="reponseForm" >
+    <div class="mb-3 row">
+      <label for="quiz_genre" class="col-sm-2 col-form-label">Contenu</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="quiz_genre" formControlName="contenu" required>
+        <div class="mb-3 text-danger"
+             *ngIf="reponseForm.get('contenu')?.invalid && (reponseForm.get('contenu')?.dirty || reponseForm.get('contenu')?.touched) || (submitted && reponseForm.invalid)">
+          Veuillez fournir un contenu.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isgood" >
+      <label class="form-check-label">
+        Bonne réponse ?
+      </label>
+    </div>
+
+
+    <div class="mb-3 row" style="margin-bottom: 20px;">
+      <label class="col-sm-1 col-form-label"></label>
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary" (click)="submitForm()"  >Créer</button>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+  </form>
+
+</div>
+
+
+
