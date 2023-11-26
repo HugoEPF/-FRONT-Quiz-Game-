@@ -15,6 +15,22 @@ export class GestionUserService {
 
   private userUrl = "http://localhost:8080/users"
 
+  private currentUser: Users | null = null;
+
+  setCurrentUser(user: Users | null): void {
+    this.currentUser = user;
+  }
+
+  getCurrentUser(): Users | null {
+    return this.currentUser;
+  }
+
+  logout(): void {
+    // Déconnexion : supprimer l'utilisateur du localStorage
+    localStorage.removeItem('user');
+    // Réinitialiser l'utilisateur dans le service
+    this.setCurrentUser(null);
+  }
 
   // Supprimer un utilisateur par son ID
   delete(id: bigint | undefined): Observable<{}> {

@@ -8,6 +8,10 @@ body {
   height: 100vh;
 }
 
+h4 {
+  font-size: 28px;
+}
+
 .page {
   width: 70%;
   margin: 2% auto;
@@ -19,12 +23,14 @@ body {
   align-items: center;
   display: flex;
   margin: auto;
+  justify-content: center;
 }
 
 .title {
   width: 100%; /* Largeur souhaitée */
   height: 120px; /* Hauteur souhaitée */
-  background-color: #3366ff; /* Couleur de fond des rectangles internes */
+  /*background-color: #3366ff; !* Couleur de fond des rectangles internes *!*/
+  background: linear-gradient(90deg, #0d6efd, #0d51fd, #0d19fd);
   color: #FFFFFF;
   margin: auto auto 15px;
   align-items: center; /* Aligner verticalement */
@@ -40,7 +46,8 @@ body {
 }
 
 button {
-  background-color: rgba(51, 99, 255, 0.41); /* Couleur de fond des rectangles internes */
+  /*background-color: rgba(51, 99, 255, 0.41); !* Couleur de fond des rectangles internes *!*/
+  background: linear-gradient(90deg, rgba(51, 139, 255, 0.41), #3363FF68);
   color: #FFFFFF;
   padding: 10px 20px;
   width: 40%;
@@ -64,22 +71,28 @@ button {
   border-radius: 5px; /* Coins arrondis */
 }
 
+.prem_col {
+  margin: auto;
+}
+
 .inner-rectangle {
   width: 480px; /* Largeur souhaitée */
   height: 140px; /* Hauteur souhaitée */
   background-color: rgba(51, 99, 255, 0.41); /* Couleur de fond des rectangles internes */
-  margin: 10px; /* Marge entre les rectangles internes */
+  /*background: linear-gradient(90deg, rgba(51, 139, 255, 0.41), #3363FF68);*/
+  margin-top: 10px;
+  margin-bottom: 30px; /* Marge entre les rectangles internes */
   cursor: pointer; /* Curseur en forme de main au survol */
-  border-radius: 5px; /* Coins arrondis */
+  border-radius: 10px; /* Coins arrondis */
   justify-content: center;
   text-align: center;
   align-items: center;
   display: flex;
 }
 
-.points {
-  margin-left: 650px;
-}
+/*.points {*/
+/*  !*text-align: center;*!*/
+/*}*/
 
 .correct-answer {
 
