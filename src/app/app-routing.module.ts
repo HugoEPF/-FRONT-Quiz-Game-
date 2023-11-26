@@ -14,9 +14,12 @@ import {EditQuizComponent} from "./edit-quiz/edit-quiz.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {CreationUserComponent} from "./creation-user/creation-user.component";
 import {InscriptionComponent} from "./inscription/inscription.component";
+import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
+import {ConnexionAdminComponent} from "./connexion-admin/connexion-admin.component";
 
 const routes: Routes = [
-  {path: "", component: ConnexionComponent},
+  {path: "connexion", component: ConnexionComponent},
+  {path: "connexion_admin", component: ConnexionAdminComponent},
   {path: "inscription", component: InscriptionComponent},
   {path: "choix_theme", component: ChoixThemeComponent},
   {path: "lien/:genre", component: LienComponent},
@@ -31,6 +34,7 @@ const routes: Routes = [
   {path: "creation_user", component: CreationUserComponent},
   {path: "edit_quiz", component: EditQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
+  {path: "", component: PageAccueilComponent},
 ]
 
 @NgModule({
