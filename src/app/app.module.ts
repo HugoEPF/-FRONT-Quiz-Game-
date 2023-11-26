@@ -20,6 +20,8 @@ import {EditUserComponent} from './edit-user/edit-user.component';
 import {NavbarUserComponent} from './navbar-user/navbar-user.component';
 import {CreationUserComponent} from './creation-user/creation-user.component';
 import {InscriptionComponent} from './inscription/inscription.component';
+import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
+import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.component';
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import {InscriptionComponent} from './inscription/inscription.component';
     NavbarUserComponent,
     CreationUserComponent,
     InscriptionComponent,
-
+    PageAccueilComponent,
+    ConnexionAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,4 +63,5 @@ import {InscriptionComponent} from './inscription/inscription.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
