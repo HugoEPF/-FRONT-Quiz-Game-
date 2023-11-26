@@ -11,11 +11,9 @@ export class ReponseService {
   constructor(private http: HttpClient) { }
   private reponseUrl:string = "http://localhost:8080/reponses"
 
+  // Trouver les réponses en fonction de leurs id
   findReponsesById(id: bigint | undefined): Observable<Reponse[]> {
     return this.http.get<Reponse[]>(this.reponseUrl + `/${(id)}`)
-  }
-  findGoodAnswer(isgood:boolean):Observable<Reponse[]> {
-    return this.http.get<Reponse[]>(this.reponseUrl + `/isGood/${(isgood)}`)
   }
   create(reponse: Reponse): Observable<Reponse> {
     return this.http.post<Reponse>(`${this.reponseUrl}`, reponse);

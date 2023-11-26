@@ -5,7 +5,7 @@ import {QuestionsService} from "../services/questions.service";
 import {Questions} from "../models/Questions";
 import { Router } from '@angular/router';
 import {Users} from "../models/Users";
-import {UserService} from "../services/user.service";
+import {GestionUserService} from "../services/gestion-user.service";
 
 
 @Component({
@@ -17,19 +17,18 @@ export class LienComponent implements OnInit {
 
   user: Users | null = null;
   currentUrl: string | undefined;
+  // Trouver les questions en fonction de leurs genres
   questions$:Observable<Questions[]> =this.questionService.findQuestionsByGenre(this.genreQuestion())
   id:bigint | undefined
   score:number=0
 
   constructor(
-    private renderer: Renderer2,
     private location: Location,
-    private userService: UserService,
     private questionService: QuestionsService,
     private router: Router
   ) {
   }
-
+  // Initialisation de la classe pour prendre les informations de l'utilisateur qui ont été enregistré dans le navigateur
   ngOnInit(): void {
     const userString = localStorage.getItem('user');
     if (userString) {
@@ -37,45 +36,25 @@ export class LienComponent implements OnInit {
       console.log(this.user);
     }
     }
-  copyToClipboard() {
-    const link = 'https://www.exemple.com';
-    // -------------------------------------------
-    // REMPLACER PAR URL DU QUIZ
-    // -----------------------------------------
-    const textArea = this.renderer.createElement('textarea');
-    textArea.value = link;
-    this.renderer.appendChild(document.body, textArea);
-    textArea.select();
-    document.execCommand('copy');
-    this.renderer.removeChild(document.body, textArea);
-    alert('Lien copié : ' + link);
-  }
-
+    // Trouver le genre de la question avec l'url en cours (renvoyer après choix_theme)
   genreQuestion(): string {
     let url = this.currentUrl = this.location.path()
     return url.substring(6);
   }
 
-  getIdQuestion(): Observable<Questions[]> {
-    return this.questions$.pipe(
-      map(id_question => id_question.filter(questions => questions.id)
-      ));
-  }
-
+// Permet de prendre la première question, d'enregistrer localement un score, et de rediriger vers la question désirée
   getId(): void {
     forkJoin({
       lengthQuestions: this.getLengthQuestions(),
-      idQuestion: this.getIdQuestion()
     }).subscribe(result => {
-      // Les deux appels asynchrones sont terminés
       const questions = result.lengthQuestions;
-      //this.lengthTableGenre = Math.floor(Math.random() * questions.length);
       this.id = questions.at(0)?.id;
       localStorage.setItem('score', JSON.stringify(this.score));
       this.router.navigateByUrl('/question/' + this.genreQuestion() + '/' + this.id);
     });
   }
 
+  // Trouver les questions
   getLengthQuestions(): Observable<Questions[]> {
     return this.questions$.pipe(
       map(questions =>
