@@ -1,6 +1,6 @@
 <div class="page">
   <div class="header">
-    <h4>Nombre de points : <span id="nb_points">points</span></h4>
+    <h4>Nombre de points : <span id="nb_points">{{this.score}}</span></h4>
   </div>
   <div class="title_question" *ngIf="question$ | async as question">
     <div class="title">

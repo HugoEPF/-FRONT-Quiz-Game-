@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {QuestionsService} from "../services/questions.service";
 import {Location} from "@angular/common";
@@ -14,7 +14,7 @@ import {GestionUserService} from "../services/gestion-user.service";
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css']
 })
-export class QuestionsComponent {
+export class QuestionsComponent implements OnInit{
   genre: string;
   currentUrl: string | undefined;
   lastNumber: string | undefined;
@@ -23,6 +23,8 @@ export class QuestionsComponent {
   color: string | undefined
   id: bigint | undefined
   user: Users | null = null;
+  score:number= 0
+
 
 
   // @ts-ignore
@@ -38,6 +40,8 @@ export class QuestionsComponent {
     private userService: GestionUserService,
     private router: Router) {
     this.genre = this.route.snapshot.params['genre'];
+    this.score = Number(localStorage.getItem('score'))
+
   }
 
   ngOnInit(): void {
@@ -46,10 +50,7 @@ export class QuestionsComponent {
       this.user = JSON.parse(userString);
       console.log(this.user);
     }
-    // this.currentUser = this.userService.getCurrentUser();
-    // console.log(this.currentUser)
-    // Faites quelque chose avec l'utilisateur actuel...
-  }
+    }
 
   getId(): string | undefined {
     let url = this.currentUrl = this.location.path()
@@ -78,12 +79,19 @@ export class QuestionsComponent {
   handleClick(index: number) {
     if (this.selectedAnswerIndex === null) {
       this.selectedAnswerIndex = index;
-      this.findGoodAnswerIndex(true).subscribe(index => {
-        if (index !== undefined) {
-          this.correctAnswerIndex = index
-          this.nextQuestion(index)
-        }
-      });
+        this.findGoodAnswerIndex(true).subscribe(correctIndex => {
+          if (index !== undefined) {
+            this.correctAnswerIndex =correctIndex
+            console.log('Correct Answer Index:' +correctIndex)
+            if(index == correctIndex) {
+              this.score++
+              localStorage.setItem('score', JSON.stringify(this.score));
+            } else {
+              localStorage.setItem('score', JSON.stringify(this.score));
+            }
+            this.nextQuestion(index)
+          }
+        })
     }
   }
 
@@ -94,24 +102,18 @@ export class QuestionsComponent {
   }
 
   nextQuestion(index: number) {
-    const color = this.isCorrectColor(index);
-    if (color === 'green' || color === 'red') {
       setTimeout(() => {
         forkJoin({
           lengthQuestions: this.searchQuestion(),
           indexCurrentQuestion: this.findQuestionIndex()
         }).subscribe(result => {
           const currentIndex = result.indexCurrentQuestion;
-          console.log(currentIndex);
-
           // Vérifiez s'il y a une question suivante
           if (currentIndex + 1 < result.lengthQuestions.length) {
             const nextQuestion = result.lengthQuestions[currentIndex + 1];
             const nextQuestionId = nextQuestion.id;
-
             // Redirection vers la question suivante
             this.router.navigateByUrl('/question/' + this.getGenre() + '/' + nextQuestionId).then(() => {
-              console.log(currentIndex);
               window.location.reload();
             });
           } else {
@@ -120,7 +122,6 @@ export class QuestionsComponent {
           }
         });
       }, 1500);
-    }
   }
 
 
