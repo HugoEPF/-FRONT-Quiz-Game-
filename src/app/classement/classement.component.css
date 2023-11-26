@@ -11,13 +11,17 @@ body {
   background: linear-gradient(315deg, #3d81ff, #735eff, #995eff);
   color: white;
   width: 50%;
-  height: 500px;
+  height: 400px;
   padding: 10px;
   border-radius: 50px;
   text-align: center;
   font-size: 40px;
   font-weight: bold;
   margin: 3% auto 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .joueurs {
