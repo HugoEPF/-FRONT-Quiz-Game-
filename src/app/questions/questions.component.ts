@@ -124,7 +124,6 @@ export class QuestionsComponent implements OnInit{
       }, 1500);
   }
 
-
   searchQuestion(): Observable<Questions[]> {
     return this.questionService.findQuestionsByGenre(this.getGenre()).pipe(
     );
