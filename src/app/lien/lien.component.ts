@@ -1,9 +1,9 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import {forkJoin, map, Observable} from "rxjs";
 import {QuestionsService} from "../services/questions.service";
 import {Questions} from "../models/Questions";
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import {Users} from "../models/Users";
 import {GestionUserService} from "../services/gestion-user.service";
 
@@ -17,8 +17,9 @@ export class LienComponent implements OnInit {
 
   user: Users | null = null;
   currentUrl: string | undefined;
-  questions$: Observable<Questions[]> = this.questionService.findQuestionsByGenre(this.genreQuestion())
-  id: bigint | undefined
+  questions$:Observable<Questions[]> =this.questionService.findQuestionsByGenre(this.genreQuestion())
+  id:bigint | undefined
+  score:number=0
 
   constructor(
     private renderer: Renderer2,
@@ -35,9 +36,19 @@ export class LienComponent implements OnInit {
       this.user = JSON.parse(userString);
       console.log(this.user);
     }
-    // this.currentUser = this.userService.getCurrentUser();
-    // console.log(this.currentUser)
-    // Faites quelque chose avec l'utilisateur actuel...
+    }
+  copyToClipboard() {
+    const link = 'https://www.exemple.com';
+    // -------------------------------------------
+    // REMPLACER PAR URL DU QUIZ
+    // -----------------------------------------
+    const textArea = this.renderer.createElement('textarea');
+    textArea.value = link;
+    this.renderer.appendChild(document.body, textArea);
+    textArea.select();
+    document.execCommand('copy');
+    this.renderer.removeChild(document.body, textArea);
+    alert('Lien copié : ' + link);
   }
 
   genreQuestion(): string {
@@ -60,6 +71,7 @@ export class LienComponent implements OnInit {
       const questions = result.lengthQuestions;
       //this.lengthTableGenre = Math.floor(Math.random() * questions.length);
       this.id = questions.at(0)?.id;
+      localStorage.setItem('score', JSON.stringify(this.score));
       this.router.navigateByUrl('/question/' + this.genreQuestion() + '/' + this.id);
     });
   }
