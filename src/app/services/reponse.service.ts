@@ -15,15 +15,22 @@ export class ReponseService {
   findReponsesById(id: bigint | undefined): Observable<Reponse[]> {
     return this.http.get<Reponse[]>(this.reponseUrl + `/${(id)}`)
   }
+
+  // Créer une réponse
   create(reponse: Reponse): Observable<Reponse> {
     return this.http.post<Reponse>(`${this.reponseUrl}`, reponse);
   }
+
+  // Mettre à jour une réponse
   update(reponse: Reponse): Observable<Reponse> {
     return this.http.post<Reponse>(`${this.reponseUrl}`, reponse);
   }
+
+  // Supprimer une réponse
   delete(id: bigint | undefined): Observable<{}> {
     return this.http.delete(`${this.reponseUrl}/${id}`, { responseType: 'text' });
   }
+
   findById(id: bigint) : Observable<Reponse> {
     return this.http. get<Reponse>(this.reponseUrl + `/byId/${(id)}`)
   }
