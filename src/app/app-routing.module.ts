@@ -23,7 +23,8 @@ import {EditQuestionComponent} from "./edit-question/edit-question.component";
 import {EditReponseComponent} from "./edit-reponse/edit-reponse.component";
 
 const routes: Routes = [
-  {path: "", component: ConnexionComponent},
+  {path: "connexion", component: ConnexionComponent},
+  {path: "connexion_admin", component: ConnexionAdminComponent},
   {path: "inscription", component: InscriptionComponent},
   {path: "connexion", component: ConnexionComponent},
   {path: "connexion_admin", component: ConnexionAdminComponent},
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path: "", component: PageAccueilComponent},
   {path: "detail_quiz/:genre/:id", component: DetailQuizComponent},
   {path: "edit_user/:id", component: EditUserComponent},
+  {path: "", component: PageAccueilComponent},
 ]
 
 @NgModule({

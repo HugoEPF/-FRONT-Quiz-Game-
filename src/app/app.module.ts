@@ -25,6 +25,7 @@ import {CreationUserComponent} from './creation-user/creation-user.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.component';
+
 import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { EditReponseComponent } from './edit-reponse/edit-reponse.component';
 
@@ -74,4 +75,5 @@ import { EditReponseComponent } from './edit-reponse/edit-reponse.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
