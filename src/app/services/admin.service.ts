@@ -14,6 +14,7 @@ export class AdminService {
 
   private userUrl = "http://localhost:8080/admins"
 
+// Trouver l'email d'un administrateur
   findByMail(email: String): Observable<Admins> {
     return this.http.get<Admins>(`${this.userUrl}/email/${email}`)
   }

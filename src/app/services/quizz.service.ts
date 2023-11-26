@@ -16,15 +16,22 @@ export class QuizzService {
     return this.http.get<Quizz[]>(this.quizzUrl)
   }
 
+  // Supprimer un quizz
   delete(id: bigint | undefined): Observable<{}> {
     return this.http.delete(`${this.quizzUrl}/${id}`, { responseType: 'text' });
   }
+
+  // Trouver l'ID d'un quizz
   findById(id: bigint) : Observable<Quizz> {
     return this.http.get<Quizz>(`${this.quizzUrl}/${id}`)
   }
+
+  // Mettre à jour un quizz
   update(quizz: Quizz): Observable<Quizz> {
     return this.http.post<Quizz>(`${this.quizzUrl}`, quizz);
   }
+
+  // Créer un quizz
   create(quiz: Quizz): Observable<Quizz> {
     return this.http.post<Quizz>(`${this.quizzUrl}`, quiz);
   }
