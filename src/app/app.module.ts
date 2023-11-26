@@ -20,13 +20,13 @@ import {EditUserComponent} from './edit-user/edit-user.component';
 import {NavbarUserComponent} from './navbar-user/navbar-user.component';
 import { CreationQuestionComponent } from './creation-question/creation-question.component';
 import { CreationReponseComponent } from './creation-reponse/creation-reponse.component';
-import { EditQuizComponent } from './edit-quiz/edit-quiz.component';
 
 import {CreationUserComponent} from './creation-user/creation-user.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.component';
 import { EditQuestionComponent } from './edit-question/edit-question.component';
+import { EditReponseComponent } from './edit-reponse/edit-reponse.component';
 
 
 @NgModule({
@@ -54,9 +54,9 @@ import { EditQuestionComponent } from './edit-question/edit-question.component';
     CreationUserComponent,
     CreationQuestionComponent,
     CreationReponseComponent,
-    EditQuizComponent,
     InscriptionComponent,
     EditQuestionComponent,
+    EditReponseComponent,
 
     InscriptionComponent,
     PageAccueilComponent,

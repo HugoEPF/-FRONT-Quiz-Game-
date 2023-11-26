@@ -14,9 +14,14 @@ export class DetailQuestionComponent {
   questionId: bigint = this._route.snapshot.params['id'];
   reponse$: Observable<Reponse[]> = this.reponseService.findReponsesById(this.questionId)
 
-  constructor(private reponseService: ReponseService,  private _route: ActivatedRoute,) {
+  constructor(private reponseService: ReponseService,  private _route: ActivatedRoute, private router: Router) {
 
 
+
+  }
+  redirectToEditQuestion() {
+    const questionIdBigInt = BigInt(this.questionId);
+    localStorage.setItem('questionId', questionIdBigInt.toString())
   }
 
 }

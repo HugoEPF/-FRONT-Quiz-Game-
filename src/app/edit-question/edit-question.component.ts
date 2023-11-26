@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {QuestionsService} from "../services/questions.service";
   templateUrl: './edit-question.component.html',
   styleUrls: ['./edit-question.component.css']
 })
-export class EditQuestionComponent {
+export class EditQuestionComponent implements OnInit{
   questionForm: FormGroup;
   question$: Observable<Questions> = this.questionsService.findById(this._route.snapshot.params['id']);
 

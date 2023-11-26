@@ -17,7 +17,7 @@
       <td>{{ reponse.isgood}}</td>
       <td>
         <a class="btn btn-success" style="width: 32px; height: 30px; padding: 0; margin-right: 5px">
-          <img src="/assets/pencil.svg" alt="Editer" routerLink="/edit_question/{{reponse.id}}">
+          <img src="/assets/pencil.svg" alt="Editer" (click)="redirectToEditQuestion()" routerLink="/edit_reponse/{{reponse.id}}">
         </a>
 
 
