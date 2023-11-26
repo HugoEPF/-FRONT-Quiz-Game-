@@ -18,16 +18,10 @@ import {CreationQuestionComponent} from "./creation-question/creation-question.c
 import {CreationReponseComponent} from "./creation-reponse/creation-reponse.component";
 import {EditQuestionComponent} from "./edit-question/edit-question.component";
 import {EditReponseComponent} from "./edit-reponse/edit-reponse.component";
-
-
 import {InscriptionComponent} from "./inscription/inscription.component";
 import {PageAccueilComponent} from "./page-accueil/page-accueil.component";
 import {ConnexionAdminComponent} from "./connexion-admin/connexion-admin.component";
-import {DetailQuizComponent} from "./detail-quiz/detail-quiz.component";
-import {CreationQuestionComponent} from "./creation-question/creation-question.component";
-import {CreationReponseComponent} from "./creation-reponse/creation-reponse.component";
-import {EditQuestionComponent} from "./edit-question/edit-question.component";
-import {EditReponseComponent} from "./edit-reponse/edit-reponse.component";
+
 
 const routes: Routes = [
   {path: "connexion", component: ConnexionComponent},
