@@ -44,20 +44,7 @@
           <span>Vous n'avez pas encore de compte ? <a href="/inscription">Cliquez ici !</a></span>
         </div>
 
-      <form [formGroup]="userForm" (ngSubmit)="create()">
-        <div class="mb-3">
-          <label for="user_email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="user_email" aria-describedby="emailHelp"
-                 placeholder="Entrez votre adresse e-mail" formControlName="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="user_pseudo" class="form-label">Pseudo : </label>
-          <input type="text" class="form-control" id="user_pseudo" placeholder="Entrez votre pseudo"
-                 formControlName="pseudo" required>
-        </div>
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
-      </form>
-
+      </div>
     </div>
 
   </div>
