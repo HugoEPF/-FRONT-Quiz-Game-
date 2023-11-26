@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {EditQuizService} from "../services/edit-quiz.service";
 import {Quizz} from "../models/Quizz";
+import {QuizzService} from "../services/quizz.service";
 
 @Component({
   selector: 'app-creation-quiz',
@@ -15,7 +15,7 @@ export class CreationQuizComponent {
 
   constructor(
     private _route: ActivatedRoute,
-    private quizService: EditQuizService,
+    private quizService: QuizzService,
     private router: Router,
     private fb: FormBuilder
   ){

@@ -11,7 +11,6 @@ export class QuestionsService {
   constructor(private http: HttpClient) {
   }
   private questionUrl = "http://localhost:8080/questions"
-  private questionGenreUrl = "http://localhost:8080/questions/byGenre"
 
   findAll() : Observable<Questions[]> {
     return this.http.get<Questions[]>(this.questionUrl )
@@ -25,7 +24,5 @@ export class QuestionsService {
   create(question: Questions): Observable<Questions> {
     return this.http.post<Questions>(`${this.questionUrl}`, question);
   }
-  findByGenre(genre_quiz: string) : Observable<Questions[]> {
-    return this.http.get<Questions[]>(`${this.questionUrl}/${genre_quiz}`)
-  }
+
 }

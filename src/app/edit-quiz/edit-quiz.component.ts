@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Observable} from "rxjs";
-import {Users} from "../models/Users";
 import {ActivatedRoute, Router} from "@angular/router";
-import {EditUserService} from "../services/edit-user.service";
 import {Quizz} from "../models/Quizz";
 import {QuizzService} from "../services/quizz.service";
 

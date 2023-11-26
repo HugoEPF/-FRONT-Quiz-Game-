@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
 import {Quizz} from "../models/Quizz";
-import {GestionQuizService} from "../services/gestion-quiz.service";
+import {QuizzService} from "../services/quizz.service";
 
 @Component({
   selector: 'app-gestion-quiz',
@@ -13,7 +13,7 @@ export class GestionQuizComponent {
 
   quizz$: Observable<Quizz[]> = this.quizzService.findAll()
 
-  constructor(private quizzService: GestionQuizService) {
+  constructor(private quizzService: QuizzService) {
 
   }
 

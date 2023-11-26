@@ -1,10 +1,10 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {Component} from '@angular/core';
 
 
 import {Users} from "../models/Users";
-import {GestionUserService} from "../services/gestion-user.service";
-import {map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-gestion-user',
@@ -15,7 +15,7 @@ export class GestionUserComponent {
 
   user$: Observable<Users[]> = this.userService.findAll()
 
-  constructor(private _route: ActivatedRoute, private userService: GestionUserService, private router: Router,) {
+  constructor(private _route: ActivatedRoute, private userService: UserService, private router: Router,) {
 
 
   }
