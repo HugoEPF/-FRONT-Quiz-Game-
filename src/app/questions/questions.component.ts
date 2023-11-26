@@ -7,7 +7,6 @@ import {ReponseService} from "../services/reponse.service";
 import {Reponse} from "../models/Reponse";
 import {forkJoin, map, Observable} from "rxjs";
 import {Users} from "../models/Users";
-import {GestionUserService} from "../services/gestion-user.service";
 
 @Component({
   selector: 'app-questions',

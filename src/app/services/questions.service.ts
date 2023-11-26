@@ -14,6 +14,9 @@ export class QuestionsService {
   findAll() : Observable<Questions[]> {
     return this.http.get<Questions[]>(this.questionUrl )
   }
+  findById(id: bigint) : Observable<Questions> {
+    return this.http.get<Questions>(`${this.questionUrl}/${id}`)
+  }
 
   // Trouver les questions en fonction de leurs id
   findQuestionsById(id: bigint | undefined): Observable<Questions[]> {
@@ -24,6 +27,16 @@ export class QuestionsService {
   findQuestionsByGenre(genre: string | undefined): Observable<Questions[]> {
         return this.http.get<Questions[]>(this.questionUrl + `/byGenre/${(genre)}`)
     }
+
+  create(question: Questions): Observable<Questions> {
+    return this.http.post<Questions>(`${this.questionUrl}`, question);
+  }
+  update(question: Questions): Observable<Questions> {
+    return this.http.post<Questions>(`${this.questionUrl}`, question);
+  }
+  delete(id: bigint | undefined): Observable<{}> {
+    return this.http.delete(`${this.questionUrl}/${id}`, { responseType: 'text' });
+  }
 
 
 }

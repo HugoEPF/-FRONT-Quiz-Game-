@@ -5,7 +5,6 @@ import {QuestionsService} from "../services/questions.service";
 import {Questions} from "../models/Questions";
 import { Router } from '@angular/router';
 import {Users} from "../models/Users";
-import {GestionUserService} from "../services/gestion-user.service";
 
 
 @Component({
