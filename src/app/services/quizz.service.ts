@@ -25,5 +25,8 @@ export class QuizzService {
   update(quizz: Quizz): Observable<Quizz> {
     return this.http.post<Quizz>(`${this.quizzUrl}`, quizz);
   }
+  create(quiz: Quizz): Observable<Quizz> {
+    return this.http.post<Quizz>(`${this.quizzUrl}`, quiz);
+  }
 
 }

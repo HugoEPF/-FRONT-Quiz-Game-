@@ -6,7 +6,7 @@ import {Users} from "../models/Users";
 @Injectable({
   providedIn: 'root'
 })
-export class EditUserService {
+export class UserService {
 
   constructor(private http: HttpClient) {
   }
@@ -26,5 +26,8 @@ export class EditUserService {
   }
   create(user: Users): Observable<Users> {
     return this.http.post<Users>(`${this.userUrl}`, user);
+  }
+  findAll() : Observable<Users[]> {
+    return this.http.get<Users[]>(this.userUrl )
   }
 }

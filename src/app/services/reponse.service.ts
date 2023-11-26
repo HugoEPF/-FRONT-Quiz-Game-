@@ -20,6 +20,8 @@ export class ReponseService {
     return this.http.get<Reponse[]>(this.reponseUrl + `/isGood/${(isgood)}`)
   }
 
+
+
   create(reponse: Reponse): Observable<Reponse> {
     return this.http.post<Reponse>(`${this.reponseUrl}`, reponse);
   }
