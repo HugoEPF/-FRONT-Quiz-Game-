@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {Users} from "../models/Users";
 import {ActivatedRoute, Router} from "@angular/router";
-import {EditUserService} from "../services/edit-user.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-creation-user',
@@ -16,7 +16,7 @@ export class CreationUserComponent {
 
   constructor(
     private _route: ActivatedRoute,
-    private userService: EditUserService,
+    private userService: UserService,
     private router: Router,
     private fb: FormBuilder
   ) {

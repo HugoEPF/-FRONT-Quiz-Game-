@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Users} from "../models/Users";
-import {EditUserService} from "../services/edit-user.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Observable} from "rxjs";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-edit-user',
@@ -17,7 +17,7 @@ export class EditUserComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private userService: EditUserService,
+    private userService: UserService,
     private router: Router,
     private fb: FormBuilder // Injectez le FormBuilder
   ) {
